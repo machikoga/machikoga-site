@@ -5965,6 +5965,93 @@ h3{
     font-size:1.3rem;
   }
 }
+
+/* ===== v44: direct inline drone video playback ===== */
+.direct-video-main{
+  overflow:hidden;
+  background:#071f4f;
+  border-radius:24px;
+  box-shadow:0 16px 34px rgba(8,42,103,.14);
+}
+.direct-video-main video{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  background:#000;
+}
+.direct-video-caption{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 15px 14px;
+  color:#fff;
+}
+.direct-video-caption span{
+  color:#ffd36b;
+  font-size:.78rem;
+  font-weight:900;
+}
+.direct-video-caption b{
+  font-size:.82rem;
+  text-align:right;
+}
+.direct-video-samples .drone-samples-head > span{
+  max-width:430px;
+}
+.direct-video-card{
+  cursor:default !important;
+}
+.direct-video-card:hover{
+  transform:none !important;
+}
+.video-thumb{
+  background:#050b18;
+  aspect-ratio:16/9;
+  height:auto !important;
+  overflow:hidden;
+}
+.video-thumb video{
+  display:block;
+  width:100%;
+  height:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  background:#000;
+}
+.direct-video-card .drone-card-body span{
+  color:var(--muted) !important;
+}
+.other-video-grid{
+  grid-template-columns:minmax(0,1fr) !important;
+  max-width:620px;
+}
+@media(max-width:760px){
+  .direct-video-caption{
+    display:block;
+  }
+  .direct-video-caption b{
+    display:block;
+    margin-top:3px;
+    text-align:left;
+  }
+  .direct-video-grid{
+    display:flex !important;
+    overflow-x:auto;
+    gap:12px;
+    padding:2px 2px 12px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .direct-video-grid .direct-video-card{
+    flex:0 0 88%;
+    scroll-snap-align:start;
+  }
+  .other-video-grid .direct-video-card{
+    flex-basis:88%;
+  }
+}
 </style>
 </head>
 <body>
@@ -6281,10 +6368,16 @@ h3{
 <div class="drone-point">他店と差別化できる</div>
 </div>
 </div>
-<a aria-label="ドローン映像サンプルを見る" class="drone-visual" href="https://drive.google.com/file/d/1rkGEh_PJsyz24Hagp78g_FtWlzGkXSut/view?usp=drive_link" rel="noopener" target="_blank">
-<img alt="ドローン映像サンプルのサムネイル" src="https://drive.google.com/thumbnail?id=1rkGEh_PJsyz24Hagp78g_FtWlzGkXSut&amp;sz=w1200"/>
-<div class="play"><span>▶</span></div>
-</a>
+<div class="drone-visual direct-video-main">
+<video controls="" playsinline="" poster="posters/kamokyu.jpg" preload="metadata">
+<source src="videos/kamokyu.mp4" type="video/mp4"/>
+        お使いのブラウザでは動画を再生できません。
+      </video>
+<div class="direct-video-caption">
+<span>小金井｜かもkyu</span>
+<b>このページでそのまま再生できます</b>
+</div>
+</div>
 </div>
 <div class="yokota-showcase yokota-v34">
 <div class="yokota-visual-wrap">
@@ -6304,39 +6397,76 @@ h3{
 </div>
 </div>
 </div>
-<div class="drone-samples">
+<div class="drone-samples direct-video-samples">
 <div class="drone-samples-head">
-<div><span class="kicker">実際のドローン映像</span><h3>撮影サンプルを見る</h3></div>
-<span>画像をタップするとGoogle Driveで再生します。</span>
+<div>
+<span class="kicker">実際のドローン映像</span>
+<h3>ページ内でそのまま見る</h3>
+</div>
+<span>再生ボタンを押すと、このページ内で動画が再生されます。</span>
 </div>
 <div class="drone-group-block">
-<div class="drone-group-head"><h3>小金井の店舗・事業者</h3><span>地域での活用例</span></div>
-<div class="drone-grid restored">
-<a class="drone-card" href="https://drive.google.com/file/d/1ObMp2p1t6uGgqpJM3c4CsjzRZMDSsMZz/view?usp=sharing" rel="noopener" target="_blank">
-<div class="drone-thumb"><img alt="KOGANEI 01" src="https://drive.google.com/thumbnail?id=1ObMp2p1t6uGgqpJM3c4CsjzRZMDSsMZz&amp;sz=w1200"/><div class="play"><span>▶</span></div></div>
-<div class="drone-card-body"><div class="tag">KOGANEI 01</div><b>小金井 店舗ドローン映像</b><span>映像を見る →</span></div>
-</a>
-<a class="drone-card" href="https://drive.google.com/file/d/1ddbFjqHnUOAQQUW_XNPxvV6VcL19XbY3/view?usp=sharing" rel="noopener" target="_blank">
-<div class="drone-thumb"><img alt="KOGANEI 02" src="https://drive.google.com/thumbnail?id=1ddbFjqHnUOAQQUW_XNPxvV6VcL19XbY3&amp;sz=w1200"/><div class="play"><span>▶</span></div></div>
-<div class="drone-card-body"><div class="tag">KOGANEI 02</div><b>小金井 店舗ドローン映像</b><span>映像を見る →</span></div>
-</a>
-<a class="drone-card" href="https://drive.google.com/file/d/1bnbwH0RM9a6VLluXtd8vpatgnZa4WUo_/view?usp=drive_link" rel="noopener" target="_blank">
-<div class="drone-thumb"><img alt="KOGANEI 03" src="https://drive.google.com/thumbnail?id=1bnbwH0RM9a6VLluXtd8vpatgnZa4WUo_&amp;sz=w1200"/><div class="play"><span>▶</span></div></div>
-<div class="drone-card-body"><div class="tag">KOGANEI 03</div><b>小金井 店舗ドローン映像</b><span>映像を見る →</span></div>
-</a>
+<div class="drone-group-head">
+<h3>小金井の店舗・事業者</h3>
+<span>地域での活用例</span>
+</div>
+<div class="drone-grid restored direct-video-grid">
+<article class="drone-card direct-video-card">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/nijiiro.jpg" preload="metadata">
+<source src="videos/nijiiro.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="drone-card-body">
+<div class="tag">KOGANEI 01</div>
+<b>にじいろ薬局</b>
+<span>店内ドローン映像</span>
+</div>
+</article>
+<article class="drone-card direct-video-card">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/cercle.jpg" preload="metadata">
+<source src="videos/cercle.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="drone-card-body">
+<div class="tag">KOGANEI 02</div>
+<b>cercle</b>
+<span>店内ドローン映像</span>
+</div>
+</article>
+<article class="drone-card direct-video-card">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/kamokyu.jpg" preload="metadata">
+<source src="videos/kamokyu.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="drone-card-body">
+<div class="tag">KOGANEI 03</div>
+<b>かもkyu</b>
+<span>店内ドローン映像</span>
+</div>
+</article>
 </div>
 </div>
 <div class="drone-group-block">
-<div class="drone-group-head"><h3>その他の撮影サンプル</h3><span>小金井以外の撮影例</span></div>
-<div class="drone-grid restored sample-restored">
-<a class="drone-card" href="https://drive.google.com/file/d/1QW_Wtt17JolisPysevFneNgSvrvR1qf2/view?usp=sharing" rel="noopener" target="_blank">
-<div class="drone-thumb"><img alt="SAMPLE 01" src="https://drive.google.com/thumbnail?id=1QW_Wtt17JolisPysevFneNgSvrvR1qf2&amp;sz=w1200"/><div class="play"><span>▶</span></div></div>
-<div class="drone-card-body"><div class="tag">SAMPLE 01</div><b>ドローン映像サンプル</b><span>映像を見る →</span></div>
-</a>
-<a class="drone-card" href="https://drive.google.com/file/d/1Ky-Yy0TWXwfiraqJabrLs9Zn1_7xg4p4/view?usp=sharing" rel="noopener" target="_blank">
-<div class="drone-thumb"><img alt="SAMPLE 02" src="https://drive.google.com/thumbnail?id=1Ky-Yy0TWXwfiraqJabrLs9Zn1_7xg4p4&amp;sz=w1200"/><div class="play"><span>▶</span></div></div>
-<div class="drone-card-body"><div class="tag">SAMPLE 02</div><b>ドローン映像サンプル</b><span>映像を見る →</span></div>
-</a>
+<div class="drone-group-head">
+<h3>その他の撮影サンプル</h3>
+<span>小金井以外の撮影例</span>
+</div>
+<div class="drone-grid restored sample-restored direct-video-grid other-video-grid">
+<article class="drone-card direct-video-card">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/rokko.jpg" preload="metadata">
+<source src="videos/rokko.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="drone-card-body">
+<div class="tag">SAMPLE 01</div>
+<b>六甲山</b>
+<span>ドローン映像サンプル</span>
+</div>
+</article>
 </div>
 </div>
 </div>
