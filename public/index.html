@@ -6104,6 +6104,41 @@ h3{
   .hero-bg-video{opacity:.14;}
   .hero-bg-overlay{background:linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,.78) 42%, rgba(246,250,255,.86) 100%);}
 }
+
+/* ===== v47: visible hero motion + fresh video URLs ===== */
+.hero-bg-video{
+  opacity:.34 !important;
+  filter:saturate(1.08) contrast(1.03) !important;
+}
+.hero-bg-overlay{
+  background:linear-gradient(90deg,
+    rgba(255,255,255,.58) 0%,
+    rgba(255,255,255,.48) 46%,
+    rgba(255,255,255,.42) 100%) !important;
+}
+.hero-copy{
+  text-shadow:0 1px 12px rgba(255,255,255,.92);
+}
+.video-thumb::after,
+.direct-video-main::after{
+  pointer-events:none !important;
+}
+.video-thumb video,
+.direct-video-main video{
+  pointer-events:auto !important;
+}
+@media(max-width:900px){
+  .hero-bg-video{opacity:.28 !important;}
+  .hero-bg-overlay{
+    background:linear-gradient(180deg,
+      rgba(255,255,255,.66) 0%,
+      rgba(255,255,255,.56) 45%,
+      rgba(255,255,255,.64) 100%) !important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-bg-video{display:none !important;}
+}
 </style>
 </head>
 <body>
@@ -6116,7 +6151,7 @@ h3{
 <nav class="nav"><a href="#results">実績</a><a href="#ai-era">なぜ今</a><a href="#services">4つの柱</a><a href="#machiaka">まちアカ</a><a href="#drone">ドローン</a><a href="#profile">想い</a><a class="btn primary" href="https://lin.ee/XvR4hbn6" rel="noopener" target="_blank">LINEで無料相談</a></nav>
 <a class="btn primary mobile-cta" href="https://lin.ee/XvR4hbn6" rel="noopener" style="min-height:40px;padding:0 16px" target="_blank">LINEで無料相談</a>
 </div>
-</header><section class="hero"><div aria-hidden="true" class="hero-bg-video-wrap"><video autoplay="" class="hero-bg-video" loop="" muted="" playsinline="" poster="posters/rokko.jpg" preload="metadata"><source src="videos/rokko.mp4" type="video/mp4"/></video><div class="hero-bg-overlay"></div></div>
+</header><section class="hero"><div aria-hidden="true" class="hero-bg-video-wrap"><video autoplay="" class="hero-bg-video" loop="" muted="" playsinline="" poster="posters/rokko-v47.jpg" preload="auto"><source src="videos/rokko-v47.mp4" type="video/mp4"/></video><div class="hero-bg-overlay"></div></div>
 <div class="container hero-wrap">
 <div class="hero-grid">
 <div class="hero-copy">
@@ -6421,8 +6456,8 @@ h3{
 </div>
 </div>
 <div class="drone-visual direct-video-main">
-<video controls="" playsinline="" poster="posters/rokko.jpg" preload="metadata">
-<source src="videos/rokko.mp4" type="video/mp4"/>
+<video controls="" playsinline="" poster="posters/rokko-v47.jpg" preload="metadata">
+<source src="videos/rokko-v47.mp4" type="video/mp4"/>
         お使いのブラウザでは動画を再生できません。
       </video>
 <div class="direct-video-caption">
@@ -6465,8 +6500,8 @@ h3{
 <div class="drone-grid restored direct-video-grid">
 <article class="drone-card direct-video-card">
 <div class="drone-thumb video-thumb">
-<video controls="" playsinline="" poster="posters/nijiiro.jpg" preload="metadata">
-<source src="videos/nijiiro.mp4" type="video/mp4"/>
+<video controls="" playsinline="" poster="posters/nijiiro-v47.jpg" preload="metadata">
+<source src="videos/nijiiro-v47.mp4" type="video/mp4"/>
                 お使いのブラウザでは動画を再生できません。
               </video>
 </div>
@@ -6478,8 +6513,8 @@ h3{
 </article>
 <article class="drone-card direct-video-card">
 <div class="drone-thumb video-thumb">
-<video controls="" playsinline="" poster="posters/cercle.jpg" preload="metadata">
-<source src="videos/cercle.mp4" type="video/mp4"/>
+<video controls="" playsinline="" poster="posters/cercle-v47.jpg" preload="metadata">
+<source src="videos/cercle-v47.mp4" type="video/mp4"/>
                 お使いのブラウザでは動画を再生できません。
               </video>
 </div>
@@ -6491,8 +6526,8 @@ h3{
 </article>
 <article class="drone-card direct-video-card">
 <div class="drone-thumb video-thumb">
-<video controls="" playsinline="" poster="posters/kamokyu.jpg" preload="metadata">
-<source src="videos/kamokyu.mp4" type="video/mp4"/>
+<video controls="" playsinline="" poster="posters/kamokyu-v47.jpg" preload="metadata">
+<source src="videos/kamokyu-v47.mp4" type="video/mp4"/>
                 お使いのブラウザでは動画を再生できません。
               </video>
 </div>
@@ -6738,6 +6773,29 @@ h3{
   menu.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   setTimeout(update, 100);
+})();
+</script><script>
+(() => {
+  const bg = document.querySelector('.hero-bg-video');
+  if (!bg) return;
+  bg.muted = true;
+  bg.defaultMuted = true;
+  bg.playsInline = true;
+  const playBg = () => {
+    const p = bg.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', playBg, {once:true});
+  } else {
+    playBg();
+  }
+  ['pointerdown','touchstart','scroll','keydown'].forEach(evt => {
+    window.addEventListener(evt, playBg, {once:true, passive:true});
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) playBg();
+  });
 })();
 </script></body>
 </html>
