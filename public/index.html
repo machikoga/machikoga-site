@@ -6169,6 +6169,64 @@ h3{
       rgba(255,255,255,.38) 100%) !important;
   }
 }
+
+/* ===== v50: dominant hero video + expanded Koganei samples ===== */
+.hero-bg-video{
+  opacity:.78 !important;
+  filter:saturate(1.18) contrast(1.08) brightness(.98) !important;
+  object-position:center center !important;
+  transform:scale(1.04);
+}
+.hero-bg-overlay{
+  background:linear-gradient(90deg,
+    rgba(255,255,255,.24) 0%,
+    rgba(255,255,255,.12) 38%,
+    rgba(255,255,255,.04) 100%) !important;
+}
+.hero-copy{
+  text-shadow:
+    0 1px 3px rgba(255,255,255,1),
+    0 0 14px rgba(255,255,255,.82) !important;
+}
+#drone .direct-video-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+}
+#drone .direct-video-card{
+  min-width:0;
+}
+#drone .drone-card-body b{
+  font-size:1rem !important;
+}
+@media(max-width:1000px){
+  #drone .direct-video-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:760px){
+  .hero-bg-video{
+    opacity:.64 !important;
+    transform:scale(1.02);
+  }
+  .hero-bg-overlay{
+    background:linear-gradient(180deg,
+      rgba(255,255,255,.34) 0%,
+      rgba(255,255,255,.18) 42%,
+      rgba(255,255,255,.28) 100%) !important;
+  }
+  #drone .direct-video-grid{
+    display:flex !important;
+    grid-template-columns:none !important;
+    overflow-x:auto !important;
+    gap:12px !important;
+    padding-bottom:8px;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  #drone .direct-video-card{
+    min-width:82vw !important;
+    scroll-snap-align:start;
+  }
+}
 </style>
 </head>
 <body>
@@ -6518,9 +6576,9 @@ h3{
 <div class="drone-samples-head">
 <div>
 <span class="kicker">実際のドローン映像</span>
-<h3>すべて小金井での撮影例です</h3>
+<h3>小金井でのドローン撮影サンプル</h3>
 </div>
-<span>再生ボタンを押すと、このページ内でそのまま再生できます。</span>
+<span>すべて小金井で撮影。再生ボタンからこのページ内でご覧いただけます。</span>
 </div>
 <div class="drone-group-block">
 <div class="drone-group-head">
@@ -6567,7 +6625,67 @@ h3{
 <span>店内ドローン映像</span>
 </div>
 </article>
+<article class="drone-card direct-video-card v50-added">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/sukkiri-v50.jpg" preload="metadata">
+<source src="videos/sukkiri-v50.mp4" type="video/mp4"/>
+          お使いのブラウザでは動画を再生できません。
+        </video>
 </div>
+<div class="drone-card-body">
+<div class="tag">KOGANEI 05</div>
+<b>スッキリ</b>
+<span>店内ドローン映像</span>
+</div>
+</article><article class="drone-card direct-video-card v50-added">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/massugu-v50.jpg" preload="metadata">
+<source src="videos/massugu-v50.mp4" type="video/mp4"/>
+          お使いのブラウザでは動画を再生できません。
+        </video>
+</div>
+<div class="drone-card-body">
+<div class="tag">KOGANEI 06</div>
+<b>まっすぐセイタイ</b>
+<span>店内ドローン映像</span>
+</div>
+</article><article class="drone-card direct-video-card v50-added">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/zendokai-v50.jpg" preload="metadata">
+<source src="videos/zendokai-v50.mp4" type="video/mp4"/>
+          お使いのブラウザでは動画を再生できません。
+        </video>
+</div>
+<div class="drone-card-body">
+<div class="tag">KOGANEI 07</div>
+<b>禅道会空手</b>
+<span>店内ドローン映像</span>
+</div>
+</article><article class="drone-card direct-video-card v50-added">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/tekkaba-v50.jpg" preload="metadata">
+<source src="videos/tekkaba-v50.mp4" type="video/mp4"/>
+          お使いのブラウザでは動画を再生できません。
+        </video>
+</div>
+<div class="drone-card-body">
+<div class="tag">KOGANEI 08</div>
+<b>てっかば</b>
+<span>店内ドローン映像</span>
+</div>
+</article><article class="drone-card direct-video-card v50-added">
+<div class="drone-thumb video-thumb">
+<video controls="" playsinline="" poster="posters/agreco-v50.jpg" preload="metadata">
+<source src="videos/agreco-v50.mp4" type="video/mp4"/>
+          お使いのブラウザでは動画を再生できません。
+        </video>
+</div>
+<div class="drone-card-body">
+<div class="tag">KOGANEI 09</div>
+<b>アグレコ</b>
+<span>店内ドローン映像</span>
+</div>
+</article></div>
 </div>
 </div>
 <div class="drone-cta">
