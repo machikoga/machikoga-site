@@ -1,0 +1,4 @@
+const heroImages=['posters/rokko-v47.jpg','posters/kamokyu-v47.jpg','posters/nijiiro-v47.jpg','posters/cercle-v47.jpg','posters/massugu-v50.jpg','posters/zendokai-v50.jpg','posters/agreco-v50.jpg','posters/tekkaba-v50.jpg','posters/sukkiri-v50.jpg'];
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+const root=document.getElementById('heroSlides');shuffle(heroImages).slice(0,6).forEach((src,i)=>{const el=document.createElement('div');el.className='hero-slide'+(i===0?' active':'');el.style.backgroundImage=`url('${src}')`;root.appendChild(el);});
+const slides=[...document.querySelectorAll('.hero-slide')];let idx=0;if(slides.length>1){setInterval(()=>{slides[idx].classList.remove('active');idx=(idx+1)%slides.length;slides[idx].classList.add('active');},4600);}
