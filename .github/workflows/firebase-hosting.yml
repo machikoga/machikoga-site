@@ -43,13 +43,14 @@ jobs:
             public firebase.json scripts docs .github FINAL_POLISH_SPEC.md \
             -x '*.DS_Store' '*.git*'
 
-      - name: Save final master changes
+      - name: Save final master changes and backup
         run: |
-          if ! git diff --quiet -- public/index.html public/assets/buru-hero-navy.webp exports/machikoga_V68_complete_2026-09-10.zip; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add public/index.html public/assets/buru-hero-navy.webp exports/machikoga_V68_complete_2026-09-10.zip
-            git commit -m "Apply V68 exact AI final and export backup [skip ci]"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/index.html public/assets/buru-hero-navy.webp || true
+          git add -f exports/machikoga_V68_complete_2026-09-10.zip
+          if ! git diff --cached --quiet; then
+            git commit -m "Export completed V68 backup [skip ci]"
             git push
           fi
 
