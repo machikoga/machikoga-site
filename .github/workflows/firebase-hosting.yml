@@ -14,47 +14,100 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install image tools
+        run: python3 -m pip install --quiet pillow
+
       - name: Apply V68 automatic UI fixes
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          from collections import deque
+          from PIL import Image
+          import re
+
+          # Build a dedicated transparent hero image from the existing Buru artwork.
+          src = Path('public/assets/buru-v67.webp')
+          dst = Path('public/assets/buru-hero-transparent.webp')
+          im = Image.open(src).convert('RGBA')
+          px = im.load()
+          w, h = im.size
+
+          def is_bg(x, y):
+              r, g, b, a = px[x, y]
+              return a == 0 or (r >= 210 and g >= 210 and b >= 210)
+
+          q = deque()
+          seen = set()
+          for x in range(w):
+              for y in (0, h - 1):
+                  if is_bg(x, y):
+                      q.append((x, y)); seen.add((x, y))
+          for y in range(h):
+              for x in (0, w - 1):
+                  if is_bg(x, y):
+                      q.append((x, y)); seen.add((x, y))
+
+          while q:
+              x, y = q.popleft()
+              r, g, b, a = px[x, y]
+              px[x, y] = (r, g, b, 0)
+              for nx, ny in ((x-1,y),(x+1,y),(x,y-1),(x,y+1)):
+                  if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in seen and is_bg(nx, ny):
+                      seen.add((nx, ny)); q.append((nx, ny))
+
+          bbox = im.getbbox()
+          if bbox:
+              l, t, r, b = bbox
+              pad = 10
+              l = max(0, l-pad); t = max(0, t-pad); r = min(w, r+pad); b = min(h, b+pad)
+              im = im.crop((l, t, r, b))
+          im.save(dst, 'WEBP', quality=88, method=6)
 
           p = Path('public/index.html')
           s = p.read_text(encoding='utf-8')
 
-          # 1) Suzuki portrait: force a fresh asset request after replacement.
-          s = s.replace(
-              'assets/partners/suzuki.webp?v=20260910-2',
-              'assets/partners/suzuki.webp?v=20260910-6'
+          # Suzuki portrait: keep the fresh asset request.
+          s = re.sub(r'assets/partners/suzuki\.webp\?v=[0-9-]+', 'assets/partners/suzuki.webp?v=20260910-8', s)
+
+          # Hero Buru: use the newly generated transparent-only asset.
+          s = re.sub(
+              r'(<img class="hero-buru" src=")[^"]+(" alt="まちこが ぶる">)',
+              r'\1assets/buru-hero-transparent.webp?v=20260910-1\2',
+              s,
+              count=1
           )
 
-          # 2) Hero Buru: remove the white arched background/card treatment.
-          old = '.hero-buru{width:min(380px,92%);height:430px;object-fit:cover;object-position:center top;border-radius:210px 210px 36px 36px;border:1px solid rgba(240,217,149,.4);background:#fff;box-shadow:0 28px 72px rgba(0,0,0,.35)}'
-          new = '.hero-buru{width:min(380px,92%);height:430px;object-fit:contain;object-position:center center;border-radius:0;border:0;background:transparent;box-shadow:none}'
-          if old in s:
-              s = s.replace(old, new, 1)
-
-          # 3) Keep the same transparent treatment on mobile.
-          old_mobile = '.hero-buru{width:210px;height:245px;border-radius:120px 120px 24px 24px}'
-          new_mobile = '.hero-buru{width:210px;height:245px;border-radius:0;object-fit:contain;background:transparent;border:0;box-shadow:none}'
-          if old_mobile in s:
-              s = s.replace(old_mobile, new_mobile, 1)
+          # Keep transparent framing on desktop/mobile.
+          s = re.sub(
+              r'\.hero-buru\{width:min\(380px,92%\);height:430px;[^}]*\}',
+              '.hero-buru{width:min(380px,92%);height:430px;object-fit:contain;object-position:center center;border-radius:0;border:0;background:transparent;box-shadow:none}',
+              s,
+              count=1
+          )
+          s = re.sub(
+              r'\.hero-buru\{width:210px;height:245px;[^}]*\}',
+              '.hero-buru{width:210px;height:245px;border-radius:0;object-fit:contain;background:transparent;border:0;box-shadow:none}',
+              s,
+              count=1
+          )
 
           p.write_text(s, encoding='utf-8')
 
-          if 'assets/partners/suzuki.webp?v=20260910-6' not in s:
+          if not dst.exists() or dst.stat().st_size == 0:
+              raise SystemExit('Transparent Buru asset was not generated')
+          if 'assets/buru-hero-transparent.webp?v=20260910-1' not in s:
+              raise SystemExit('Hero Buru source was not updated')
+          if 'assets/partners/suzuki.webp?v=20260910-8' not in s:
               raise SystemExit('Suzuki cache-bust replacement was not applied')
-          if 'background:transparent;box-shadow:none' not in s:
-              raise SystemExit('Hero Buru transparency replacement was not applied')
           PY
 
       - name: Save V68 fixes to source
         run: |
-          if ! git diff --quiet -- public/index.html; then
+          if ! git diff --quiet -- public/index.html public/assets/buru-hero-transparent.webp; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add public/index.html
-            git commit -m "Apply V68 automatic UI fixes [skip ci]"
+            git add public/index.html public/assets/buru-hero-transparent.webp
+            git commit -m "Apply transparent hero Buru [skip ci]"
             git push
           fi
 
