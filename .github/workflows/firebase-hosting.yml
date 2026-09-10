@@ -5,11 +5,58 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Apply V68 automatic UI fixes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('public/index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # 1) Suzuki portrait: force a fresh asset request after replacement.
+          s = s.replace(
+              'assets/partners/suzuki.webp?v=20260910-2',
+              'assets/partners/suzuki.webp?v=20260910-6'
+          )
+
+          # 2) Hero Buru: remove the white arched background/card treatment.
+          old = '.hero-buru{width:min(380px,92%);height:430px;object-fit:cover;object-position:center top;border-radius:210px 210px 36px 36px;border:1px solid rgba(240,217,149,.4);background:#fff;box-shadow:0 28px 72px rgba(0,0,0,.35)}'
+          new = '.hero-buru{width:min(380px,92%);height:430px;object-fit:contain;object-position:center center;border-radius:0;border:0;background:transparent;box-shadow:none}'
+          if old in s:
+              s = s.replace(old, new, 1)
+
+          # 3) Keep the same transparent treatment on mobile.
+          old_mobile = '.hero-buru{width:210px;height:245px;border-radius:120px 120px 24px 24px}'
+          new_mobile = '.hero-buru{width:210px;height:245px;border-radius:0;object-fit:contain;background:transparent;border:0;box-shadow:none}'
+          if old_mobile in s:
+              s = s.replace(old_mobile, new_mobile, 1)
+
+          p.write_text(s, encoding='utf-8')
+
+          if 'assets/partners/suzuki.webp?v=20260910-6' not in s:
+              raise SystemExit('Suzuki cache-bust replacement was not applied')
+          if 'background:transparent;box-shadow:none' not in s:
+              raise SystemExit('Hero Buru transparency replacement was not applied')
+          PY
+
+      - name: Save V68 fixes to source
+        run: |
+          if ! git diff --quiet -- public/index.html; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add public/index.html
+            git commit -m "Apply V68 automatic UI fixes [skip ci]"
+            git push
+          fi
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
