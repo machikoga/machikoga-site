@@ -74,6 +74,292 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f0
 @media(max-width:1050px){.offer-grid{grid-template-columns:1fr 1fr}.sales-five{grid-template-columns:repeat(3,1fr)}.easy-wrap{grid-template-columns:1fr}.plan-grid{grid-template-columns:1fr}.plan-card.featured{transform:none}}
 @media(max-width:780px){.offer-grid{grid-template-columns:1fr}.included-strip{align-items:flex-start;flex-direction:column}.included-strip .btn{width:100%}.compact-partners{padding-top:58px;padding-bottom:58px}.compact-person .trio-photo{width:108px;height:108px}.partner-intro{font-size:.78rem}.sales-five{grid-template-columns:1fr 1fr}.easy-list div{grid-template-columns:44px 1fr}.easy-list span{grid-column:2}.fan-flow{grid-template-columns:1fr 1fr}.setup-card{align-items:flex-start;flex-direction:column}.setup-card>strong{font-size:1.9rem}.plan-grid{grid-template-columns:1fr}.pricing .section-cta .btn{width:100%}}
 @media(max-width:430px){.sales-five,.fan-flow{grid-template-columns:1fr}.authority-mini span{font-size:.64rem}}
+
+/* V68 FINAL VISUAL EMPHASIS */
+
+/* ---- WHY NOW: readable heading + visual cards ---- */
+.why-balance-title{
+  max-width:9.2em;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  text-wrap:balance;
+  line-height:1.02;
+}
+.why-grid{gap:18px}
+.why-card{
+  position:relative;
+  padding:30px 28px 26px;
+  border-radius:28px;
+  border:1px solid #d9e3ef;
+  background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);
+  box-shadow:0 16px 38px rgba(6,26,56,.07);
+  overflow:hidden;
+}
+.why-card:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:5px;
+  background:linear-gradient(90deg,#1659a8,#0d9b99);
+}
+.why-card .mark{
+  width:84px;
+  height:84px;
+  border-radius:24px;
+  margin-bottom:22px;
+  font-size:1.65rem;
+  letter-spacing:-.02em;
+  box-shadow:0 14px 28px rgba(6,26,56,.18);
+}
+.why-grid .why-card:nth-child(1) .mark{
+  background:linear-gradient(135deg,#113b7a,#2468bd);
+}
+.why-grid .why-card:nth-child(2) .mark{
+  background:linear-gradient(135deg,#0c607b,#10a6a0);
+}
+.why-grid .why-card:nth-child(3) .mark{
+  background:linear-gradient(135deg,#8d6222,#d0a449);
+}
+.why-card h3{
+  font-size:clamp(1.42rem,2.1vw,1.9rem);
+  line-height:1.28;
+  letter-spacing:-.025em;
+}
+.why-card p{
+  font-size:.98rem;
+  line-height:1.8;
+}
+.why-card .small{
+  margin-top:18px;
+  padding-top:15px;
+  font-size:.86rem;
+  color:#52647d;
+}
+
+/* ---- COUNTER AI: more dramatic and easier to scan ---- */
+.ai{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(240,217,149,.18),transparent 25%),
+    radial-gradient(circle at 90% 18%,rgba(12,139,134,.16),transparent 30%),
+    linear-gradient(145deg,#031735 0%,#082b5f 52%,#0b4769 100%);
+}
+.ai .section-head h2{
+  max-width:10em;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  text-wrap:balance;
+}
+.sales-five{
+  gap:14px;
+}
+.sales-five .value-card{
+  position:relative;
+  min-height:172px;
+  padding:25px 22px 20px;
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.055));
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 16px 35px rgba(0,0,0,.08);
+}
+.sales-five .value-card:before{
+  content:"COUNTER AI";
+  display:inline-flex;
+  margin-bottom:15px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:rgba(240,217,149,.14);
+  border:1px solid rgba(240,217,149,.26);
+  color:#f0d995;
+  font-size:.56rem;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+.sales-five .value-card b{
+  font-size:1.48rem;
+  color:#fff;
+}
+.sales-five .value-card span{
+  font-size:.92rem;
+  line-height:1.65;
+  color:rgba(255,255,255,.72);
+}
+.sales-five .value-card.center{
+  background:linear-gradient(145deg,#fffdf7,#edf5ff);
+  border:2px solid rgba(240,217,149,.76);
+  transform:translateY(-8px);
+  box-shadow:0 22px 46px rgba(0,0,0,.18);
+}
+.sales-five .value-card.center:before{
+  content:"ONLY HERE";
+  background:#0b2b58;
+  border:0;
+  color:#f0d995;
+}
+.sales-five .value-card.center b{color:#071d3f}
+.sales-five .value-card.center span{color:#586a82}
+.role-card{
+  position:relative;
+  margin-top:26px;
+  padding:38px 34px 34px;
+  border-radius:32px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#fff,#f7faff);
+  border:1px solid #dce5f0;
+  box-shadow:0 26px 58px rgba(0,0,0,.17);
+}
+.role-card:before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;
+  height:6px;
+  background:linear-gradient(90deg,#c7a253,#f0d995,#0c8b86);
+}
+.counter-copy{
+  display:grid;
+  gap:7px;
+  text-align:center;
+}
+.counter-copy span{
+  display:block;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  text-wrap:balance;
+}
+.counter-copy span:first-child{
+  color:#9b6a26;
+  font-size:clamp(2.25rem,4vw,4.5rem);
+  line-height:1.04;
+}
+.counter-copy span:last-child{
+  color:#071d3f;
+  font-size:clamp(1.9rem,3.5vw,3.8rem);
+  line-height:1.08;
+}
+
+/* ---- THE MOST IMPORTANT PART: two core selling points ---- */
+.core-grid{
+  gap:22px;
+  align-items:stretch;
+}
+.core-card{
+  min-height:100%;
+}
+.core-card.one.core-primary{
+  position:relative;
+  background:
+    radial-gradient(circle at 95% 0%,rgba(14,172,166,.32),transparent 34%),
+    linear-gradient(145deg,#061a38 0%,#0a3970 58%,#096d73 100%);
+  color:#fff;
+  border:2px solid rgba(240,217,149,.78);
+  box-shadow:0 28px 68px rgba(6,26,56,.22),0 0 0 5px rgba(199,162,83,.08);
+  transform:translateY(-6px);
+}
+.core-card.one.core-primary:before{
+  height:7px;
+  background:linear-gradient(90deg,#f0d995,#c7a253,#35c4b9);
+}
+.core-card.one.core-primary .core-label{
+  display:inline-flex;
+  padding:6px 11px;
+  border-radius:999px;
+  color:#061a38;
+  background:#f0d995;
+  font-size:.74rem;
+}
+.core-card.one.core-primary h3,
+.core-card.one.core-primary p{
+  color:#fff;
+}
+.core-card.one.core-primary p{color:rgba(255,255,255,.82)}
+.core-card.one.core-primary .asset-note{
+  background:rgba(3,16,38,.58);
+  border:1px solid rgba(255,255,255,.12);
+}
+.core-card.one.core-primary .asset-note b{color:#f0d995}
+.core-card.one.core-primary .network-list div{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(255,255,255,.14);
+  color:#fff;
+}
+.core-emphasis{
+  display:inline;
+  position:relative;
+  z-index:1;
+}
+.core-emphasis-one{
+  color:#f7dc87;
+  text-shadow:0 2px 18px rgba(240,217,149,.16);
+}
+.core-emphasis-one:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-5px;
+  height:7px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#f0d995,#4ad1c6);
+  opacity:.9;
+  z-index:-1;
+}
+.core-card.two{
+  background:linear-gradient(145deg,#f8fbff,#edf7f7);
+  color:#071d3f;
+  border:1px solid #cfe1e7;
+  box-shadow:0 18px 46px rgba(6,26,56,.09);
+}
+.core-card.two:before{
+  background:linear-gradient(90deg,#0f5fa5,#0c8b86);
+}
+.core-card.two .core-label{
+  display:inline-flex;
+  padding:6px 11px;
+  border-radius:999px;
+  background:#0a3a70;
+  color:#fff;
+}
+.core-card.two h3{color:#071d3f}
+.core-card.two p{color:#526178}
+.core-card.two .one-post{
+  background:linear-gradient(145deg,#0a315e,#0a6f73);
+  color:#fff;
+}
+.core-card.two .branch{
+  background:rgba(255,255,255,.13);
+  color:#fff;
+}
+.core-card.two .bigline{color:#071d3f}
+.core-emphasis-two{
+  color:#087e84;
+  text-shadow:0 2px 12px rgba(12,139,134,.12);
+}
+.core-emphasis-two:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-5px;
+  height:6px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#0c8b86,#4cb8d2);
+  opacity:.25;
+  z-index:-1;
+}
+
+@media(max-width:900px){
+  .why-balance-title{max-width:none}
+  .sales-five{grid-template-columns:1fr 1fr}
+  .sales-five .value-card.center{grid-column:1/-1;transform:none}
+}
+@media(max-width:780px){
+  .why-card{padding:22px 20px 20px}
+  .why-card .mark{width:72px;height:72px;border-radius:20px;font-size:1.4rem}
+  .why-card h3{font-size:1.42rem}
+  .sales-five{grid-template-columns:1fr}
+  .sales-five .value-card{min-height:auto}
+  .role-card{padding:28px 18px 24px}
+  .counter-copy span:first-child{font-size:clamp(2rem,10vw,3rem)}
+  .counter-copy span:last-child{font-size:clamp(1.55rem,8vw,2.6rem)}
+  .core-card.one.core-primary{transform:none}
+  .core-card h3{font-size:clamp(1.85rem,8vw,2.55rem)}
+}
+
 </style>
 </head>
 <body>
@@ -91,11 +377,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f0
 <article class="card empathy-card"><span class="kicker">FOR KOGANEI BUSINESS</span><h3>WEBを整えたい。<br><span class="gold">でも、担当者を雇うほどではない。</span></h3><p>Instagram、Googleマップ、口コミ、地域への発信。必要なのは分かっていても、日々の本業をしながら全部を設計・運用するのは大変です。</p></article>
 <aside class="buru-tip"><img src="assets/buru-v67.webp" alt="ぶる"><div><strong>社長は、本業に集中してください。</strong><p>投稿を増やすのではなく、今ある発信を「残る資産」に変える仕組みを、ぶるが設計します。</p></div></aside>
 </div></section>
-<section class="section why" id="why"><div class="container"><div class="section-head"><div><span class="kicker">WHY NOW</span><h2>なぜ、今整えるのか。</h2></div><p class="lead">お店の価値ではなく、<strong>見つけられ方</strong>で差がつく時代です。SNS・Google・地域発信をつなぎ、選ばれる入口を整えます。</p></div><div class="why-grid"><article class="card why-card"><div class="mark">AI</div><h3>AIに伝わる情報を増やす</h3><p>SNS・Google・写真・更新情報をつなぐと、AIが事業の特徴を理解しやすくなります。</p><div class="small">情報を整える → 候補に入りやすくなる</div></article><article class="card why-card"><div class="mark">G</div><h3>Googleで、先に見つかる店へ</h3><p>検索・地図・口コミ・写真が整っているほど、比較のスタート地点に立ちやすくなります。</p><div class="small">見つかる → 良さを知ってもらえる</div></article><article class="card why-card"><div class="mark">↗</div><h3>地域の中で選ばれる土台をつくる</h3><p>発信・検索・口コミがつながると、小金井の中で見つかり、選ばれる理由が積み上がります。</p><div class="small">店の差ではなく、見つかり方の差</div></article></div><div class="risk-box"><div><h3>良い店だからこそ、見つかる仕組みまで整える。</h3><p>だから必要なのは、投稿数を増やすことではなく、<strong>小金井で見つかる仕組みを持つこと</strong>です。</p><div class="warning-note">Instagram・Google・まちアカ・地域発信をつなげておくことが、これからの地域ビジネスの土台になります。</div></div><div class="risk-visual"><div>Google検索</div><div>Googleマップ</div><div>Instagram</div><div>AI検索</div></div></div></div></section>
-<section class="section ai" id="ai"><div class="container"><div class="section-head"><div><span class="kicker">AI CANNOT CREATE THIS</span><h2>AIには作れない、<br>地域ビジネスの価値。</h2></div><p class="lead">AIはコンテンツを作れても、あなたの店が積み上げてきたものまでは作れません。</p></div><div class="values-grid sales-five"><div class="value-card"><b>土地</b><span>その場所で商売してきた事実</span></div><div class="value-card"><b>歴史</b><span>店・会社が歩んできた背景</span></div><div class="value-card"><b>時間・プロセス</b><span>地域に積み重ねた信頼</span></div><div class="value-card"><b>思い出</b><span>お客様との体験・記憶</span></div><div class="value-card center"><b>地域とのつながり</b><span>小金井で育てた、本物の事業資産</span></div></div><div class="role-card"><div class="role-main"><span>価値は、すでにある。</span><span>まちこがは、それを見つかる形にする。</span></div></div></div></section>
+<section class="section why" id="why"><div class="container"><div class="section-head"><div><span class="kicker">WHY NOW</span><h2 class="why-balance-title">なぜ、今整えるのか。</h2></div><p class="lead">お店の価値ではなく、<strong>見つけられ方</strong>で差がつく時代です。SNS・Google・地域発信をつなぎ、選ばれる入口を整えます。</p></div><div class="why-grid"><article class="card why-card"><div class="mark">AI</div><h3>AIに伝わる情報を増やす</h3><p>SNS・Google・写真・更新情報をつなぐと、AIが事業の特徴を理解しやすくなります。</p><div class="small">情報を整える → 候補に入りやすくなる</div></article><article class="card why-card"><div class="mark">G</div><h3>Googleで、先に見つかる店へ</h3><p>検索・地図・口コミ・写真が整っているほど、比較のスタート地点に立ちやすくなります。</p><div class="small">見つかる → 良さを知ってもらえる</div></article><article class="card why-card"><div class="mark">↗</div><h3>地域の中で選ばれる土台をつくる</h3><p>発信・検索・口コミがつながると、小金井の中で見つかり、選ばれる理由が積み上がります。</p><div class="small">店の差ではなく、見つかり方の差</div></article></div><div class="risk-box"><div><h3>良い店だからこそ、見つかる仕組みまで整える。</h3><p>だから必要なのは、投稿数を増やすことではなく、<strong>小金井で見つかる仕組みを持つこと</strong>です。</p><div class="warning-note">Instagram・Google・まちアカ・地域発信をつなげておくことが、これからの地域ビジネスの土台になります。</div></div><div class="risk-visual"><div>Google検索</div><div>Googleマップ</div><div>Instagram</div><div>AI検索</div></div></div></div></section>
+<section class="section ai" id="ai"><div class="container"><div class="section-head"><div><span class="kicker">AI CANNOT CREATE THIS</span><h2>AIには作れない、<br>地域ビジネスの価値。</h2></div><p class="lead">AIはコンテンツを作れても、あなたの店が積み上げてきたものまでは作れません。</p></div><div class="values-grid sales-five"><div class="value-card"><b>土地</b><span>その場所で商売してきた事実</span></div><div class="value-card"><b>歴史</b><span>店・会社が歩んできた背景</span></div><div class="value-card"><b>時間・プロセス</b><span>地域に積み重ねた信頼</span></div><div class="value-card"><b>思い出</b><span>お客様との体験・記憶</span></div><div class="value-card center"><b>地域とのつながり</b><span>小金井で育てた、本物の事業資産</span></div></div><div class="role-card"><div class="role-main counter-copy"><span>価値は、すでにある。</span><span>まちこがは、それを見つかる形にする。</span></div></div></div></section>
 <section class="section infra" id="infra"><div class="container"><div class="section-head"><div><span class="kicker">TWO CORE VALUES</span><h2>投稿代行ではなく、<br>自前の情報インフラをつくる。</h2></div><p class="lead">広告のように止めたら消える「フロー型」ではなく、SNS・Google・地域情報を積み上げる<strong>ストック型の経営資産</strong>へ。</p></div><div class="core-grid">
-<article class="core-card one core-primary"><span class="core-label">PR POINT 01</span><h3>小金井で強い、<br>自前の情報インフラ。</h3><p>Instagram・Googleマップ・まちアカ・ぶる・動画をバラバラにせず、<strong>自分たちで発信し、見つけてもらい、また来てもらえる土台</strong>としてつなぎます。</p><div class="asset-note"><b>積み上げるほど、御社に残る。</b><span>集客・採用・イベント・新商品。自分のメディアを持てば、いつでも発信できます。</span></div><div class="network-list"><div>Instagram</div><div>Googleマップ</div><div>まちアカ</div><div>ぶる・地域発信</div></div></article>
-<article class="core-card two"><span class="core-label">PR POINT 02</span><h3>同じ1回の発信を、<br>小金井で数倍強くする。</h3><p>1つずつ別々に投稿するのではなく、情報の行き先をつなげて接点を増やします。</p><div class="one-post"><strong>1回の発信</strong><div class="branches"><div class="branch">Instagram</div><div class="branch">Google</div><div class="branch">まちアカ</div><div class="branch">地域メディア</div></div></div><div class="bigline">頑張る量ではなく、1回の価値を上げる。</div></article>
+<article class="core-card one core-primary"><span class="core-label">PR POINT 01</span><h3>小金井で強い、<br><span class="core-emphasis core-emphasis-one">自前の情報インフラ。</span></h3><p>Instagram・Googleマップ・まちアカ・ぶる・動画をバラバラにせず、<strong>自分たちで発信し、見つけてもらい、また来てもらえる土台</strong>としてつなぎます。</p><div class="asset-note"><b>積み上げるほど、御社に残る。</b><span>集客・採用・イベント・新商品。自分のメディアを持てば、いつでも発信できます。</span></div><div class="network-list"><div>Instagram</div><div>Googleマップ</div><div>まちアカ</div><div>ぶる・地域発信</div></div></article>
+<article class="core-card two"><span class="core-label">PR POINT 02</span><h3>同じ1回の発信を、<br><span class="core-emphasis core-emphasis-two">小金井で数倍強くする。</span></h3><p>1つずつ別々に投稿するのではなく、情報の行き先をつなげて接点を増やします。</p><div class="one-post"><strong>1回の発信</strong><div class="branches"><div class="branch">Instagram</div><div class="branch">Google</div><div class="branch">まちアカ</div><div class="branch">地域メディア</div></div></div><div class="bigline">頑張る量ではなく、1回の価値を上げる。</div></article>
 </div></div></section>
 <section class="section services" id="services"><div class="container"><span class="kicker">ONE PACKAGE</span><h2>小金井で必要なWEB施策を、<br>4つの柱で一つの仕組みに。</h2><p class="lead service-intro">別々の業者に頼むのではなく、地域で「見つかる → 伝わる → ファンになる」までをまとめて設計します。</p>
 <div class="offer-grid">
