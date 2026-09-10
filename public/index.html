@@ -1287,6 +1287,69 @@ img, picture, video, canvas, svg, iframe {
     overflow-wrap:anywhere!important;
   }
 
+  /* HERO PROOF STATS: compact, balanced 2 x 2 card on phones */
+  .proof-wrap{
+    padding:0 0 8px!important;
+    background:#fff!important;
+  }
+  .proof-wrap .container{
+    width:calc(100% - 24px)!important;
+    max-width:calc(100% - 24px)!important;
+  }
+  .proof{
+    width:100%!important;
+    max-width:100%!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    transform:translateY(-10px)!important;
+    border-radius:24px!important;
+    border:1px solid #dfe6ee!important;
+    overflow:hidden!important;
+    box-shadow:0 14px 34px rgba(5,25,57,.10)!important;
+    background:#fff!important;
+  }
+  .proof-item{
+    min-width:0!important;
+    min-height:118px!important;
+    padding:18px 10px 16px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    border-right:1px solid #dfe6ee!important;
+    border-bottom:0!important;
+  }
+  .proof-item:nth-child(1),
+  .proof-item:nth-child(2){
+    border-bottom:1px solid #dfe6ee!important;
+  }
+  .proof-item:nth-child(2),
+  .proof-item:nth-child(4){
+    border-right:0!important;
+  }
+  .proof-item strong{
+    display:block!important;
+    margin:0!important;
+    color:#071d3f!important;
+    font-size:clamp(1.95rem,8.7vw,2.35rem)!important;
+    line-height:1!important;
+    letter-spacing:-.04em!important;
+    white-space:nowrap!important;
+  }
+  .proof-item span{
+    display:block!important;
+    width:100%!important;
+    max-width:150px!important;
+    margin:10px auto 0!important;
+    color:#7a8798!important;
+    font-size:.70rem!important;
+    font-weight:850!important;
+    line-height:1.45!important;
+    letter-spacing:0!important;
+    overflow-wrap:normal!important;
+    word-break:keep-all!important;
+  }
+
   /* Hero mascot */
   .hero-side{
     width:100%!important;
@@ -1369,6 +1432,19 @@ img, picture, video, canvas, svg, iframe {
 @media(max-width:430px){
   #infra .section-head h2{
     font-size:clamp(1.9rem,8.7vw,2.25rem)!important;
+  }
+  .proof-item{
+    min-height:112px!important;
+    padding:16px 8px 14px!important;
+  }
+  .proof-item strong{
+    font-size:clamp(1.85rem,8.4vw,2.2rem)!important;
+  }
+  .proof-item span{
+    max-width:140px!important;
+    margin-top:9px!important;
+    font-size:.67rem!important;
+    line-height:1.42!important;
   }
   .hero-side .hero-buru{
     width:165px!important;
@@ -1471,6 +1547,7 @@ img, picture, video, canvas, svg, iframe {
 <article class="core-card one core-primary"><span class="core-label">PR POINT 01</span><h3>小金井で強い、<br><span class="core-emphasis core-emphasis-one">自前の情報インフラ。</span></h3><p>Instagram・Googleマップ・まちアカ・ぶる・動画をバラバラにせず、<strong>自分たちで発信し、見つけてもらい、また来てもらえる土台</strong>としてつなぎます。</p><div class="asset-note"><b>積み上げるほど、御社に残る。</b><span>集客・採用・イベント・新商品。自分のメディアを持てば、いつでも発信できます。</span></div></article>
 <article class="core-card two"><span class="core-label">PR POINT 02</span><h3>同じ1回の発信を、<br><span class="core-emphasis core-emphasis-two">小金井で数倍強くする。</span></h3><p>1つずつ別々に投稿するのではなく、情報の行き先をつなげて接点を増やします。</p><div class="one-post"><strong>1回の発信</strong><div class="branches"><div class="branch">Instagram</div><div class="branch">Google</div><div class="branch">まちアカ</div><div class="branch">地域メディア</div></div></div><div class="bigline">頑張る量ではなく、1回の価値を上げる。</div></article>
 </div></div></section>
+
 <section class="section dual-platform-section" id="dual-platform"><div class="container dual-platform-inner">
   <div class="dual-platform-kicker">INSTAGRAM × GOOGLE</div>
   <div class="dual-platform-head">
