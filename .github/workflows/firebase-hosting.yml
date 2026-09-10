@@ -5,52 +5,11 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Build verified V68 homepage
-        run: |
-          cat \
-            .v68build2/part01.b64 \
-            .v68build2/part02.b64 \
-            .v68build2/part03.b64 \
-            .v68build2/part04.b64 \
-            .v68build2/part05.b64 \
-            .v68build2/part06.b64 \
-            .v68build2/part07.b64 \
-            .v68build2/part08a1a.b64 \
-            .v68build2/part08a1b-correct.b64 \
-            .v68build2/part08a2.b64 \
-            .v68build2/part08a3.b64 \
-            .v68build2/part08a4.b64 \
-            .v68build2/part08b.b64 \
-            .v68build2/part09.b64 > /tmp/v68.b64
-          echo "5cbba41f101bf68f64b76d4a174000bbd6bab8a79ede68e49204d2f7f6758de2  /tmp/v68.b64" | sha256sum -c -
-          base64 -d /tmp/v68.b64 | gzip -d > public/index.html
-          echo "203501427bd028737a7608aa3b81b1739e8c23411519e2377012729e419de0dd  public/index.html" | sha256sum -c -
-
-      - name: Verify V68 homepage structure
-        run: |
-          grep -q 'name="machikoga-version" content="V68"' public/index.html
-          grep -q '<body>' public/index.html
-          grep -q '</html>' public/index.html
-          test "$(wc -c < public/index.html)" -eq 102368
-
-      - name: Commit generated V68 source
-        run: |
-          if ! git diff --quiet -- public/index.html; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add public/index.html
-            git commit -m "Build V68 homepage"
-            git push
-          fi
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
