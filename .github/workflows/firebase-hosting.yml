@@ -41,6 +41,9 @@ jobs:
       - name: Put Buru first in partner section
         run: python3 scripts/reorder_partners_buru_first.py
 
+      - name: Final responsive cleanup
+        run: python3 scripts/final_layout_cleanup.py
+
       - name: Build downloadable V68 backup
         run: |
           mkdir -p exports
@@ -56,7 +59,7 @@ jobs:
           git add public/index.html public/assets/buru-hero-navy.webp || true
           git add -f exports/machikoga_V68_complete_2026-09-10.zip
           if ! git diff --cached --quiet; then
-            git commit -m "Put Buru first and export backup [skip ci]"
+            git commit -m "Apply final responsive cleanup and export backup [skip ci]"
             git push
           fi
 
