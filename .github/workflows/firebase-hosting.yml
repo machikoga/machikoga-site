@@ -20,6 +20,9 @@ jobs:
       - name: Apply final master polish
         run: python3 scripts/final_master_polish.py
 
+      - name: Add SNS course and seminar section
+        run: python3 scripts/add_other_services.py
+
       - name: Save final master changes
         run: |
           if ! git diff --quiet -- public/index.html public/assets/buru-hero-navy.webp; then
