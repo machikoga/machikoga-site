@@ -14,16 +14,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Apply final V68 visual emphasis
-        run: python3 scripts/final_visual_emphasis.py
+      - name: Install image tools
+        run: python3 -m pip install --quiet pillow
 
-      - name: Save final V68 visual changes
+      - name: Apply final master polish
+        run: python3 scripts/final_master_polish.py
+
+      - name: Save final master changes
         run: |
-          if ! git diff --quiet -- public/index.html; then
+          if ! git diff --quiet -- public/index.html public/assets/buru-hero-navy.webp; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add public/index.html
-            git commit -m "Apply V68 visual emphasis [skip ci]"
+            git add public/index.html public/assets/buru-hero-navy.webp
+            git commit -m "Apply V68 final master polish [skip ci]"
             git push
           fi
 
