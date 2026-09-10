@@ -29,6 +29,9 @@ jobs:
       - name: Polish WHY NOW and AI value sections
         run: python3 scripts/polish_why_ai_final.py
 
+      - name: Finalize exact AI section
+        run: python3 scripts/finalize_ai_section_exact.py
+
       - name: Apply local price copy
         run: python3 scripts/update_local_price_copy.py
 
@@ -38,7 +41,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add public/index.html public/assets/buru-hero-navy.webp
-            git commit -m "Apply V68 local price copy [skip ci]"
+            git commit -m "Apply V68 exact AI final [skip ci]"
             git push
           fi
 
