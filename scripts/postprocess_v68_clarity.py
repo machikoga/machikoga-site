@@ -13,6 +13,7 @@ if start != -1 and end != -1:
     tools = re.sub(r'<span class="kicker">.*?</span>', '<span class="kicker">ぶる × POWERFUL PARTNERS</span>', tools, count=1, flags=re.S)
     tools = re.sub(r'<h2>.*?</h2>', '<h2>ぶるを支える、<br>強力なパートナー。</h2>', tools, count=1, flags=re.S)
     tools = re.sub(r'<p class="lead trio-lead">.*?</p>', '', tools, count=1, flags=re.S)
+    tools = tools.replace('<strong>ぶるが全体を設計</strong>', '<strong>ぶるが設計</strong>')
 
     tools = tools.replace('<div class="main-badge">MACHIKOGA / BUL</div>', '<div class="main-badge">まちこが / ぶる</div>')
     tools = tools.replace('<div class="trio-role">BUL / PRODUCER</div>', '<div class="trio-role">ぶる / PRODUCER</div>')
@@ -63,6 +64,7 @@ p.write_text(s, encoding='utf-8')
 # Safety checks
 required = [
     'ぶるを支える、<br>強力なパートナー。',
+    '<strong>ぶるが設計</strong>',
     'Instagram「ぶる」フォロワー数',
     'フォロワーのうち小金井エリア',
     '小金井で実際に一緒に仕事をした事業者',
