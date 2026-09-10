@@ -4,21 +4,28 @@ import re
 p = Path('public/index.html')
 s = p.read_text(encoding='utf-8')
 
-pattern = re.compile(
-    r'(<div class="trio-stage compact-stage">\s*)'
-    r'(<article class="trio-person compact-person suzuki">.*?</article>)\s*'
-    r'(<article class="trio-person compact-person buru-center">.*?</article>)\s*'
-    r'(<article class="trio-person compact-person yokota">.*?</article>)'
-    r'(\s*</div>)',
+stage_match = re.search(
+    r'(<div class="trio-stage compact-stage">)(.*?)(</div>\s*</div>\s*</section>)',
+    s,
     re.S,
 )
+if not stage_match:
+    raise SystemExit('Partner stage not found')
 
-m = pattern.search(s)
-if not m:
-    raise SystemExit('Partner section order pattern not found')
+stage_inner = stage_match.group(2)
+articles = re.findall(r'<article class="trio-person compact-person [^"]+">.*?</article>', stage_inner, re.S)
+if len(articles) < 3:
+    raise SystemExit('Partner cards not found')
 
-prefix, suzuki, buru, yokota, suffix = m.groups()
-s = s[:m.start()] + prefix + buru + '\n' + suzuki + '\n' + yokota + suffix + s[m.end():]
+buru = next((a for a in articles if 'buru-center' in a), None)
+suzuki = next((a for a in articles if 'suzuki' in a), None)
+yokota = next((a for a in articles if 'yokota' in a), None)
+if not all([buru, suzuki, yokota]):
+    raise SystemExit('One or more partner cards missing')
+
+# Always rebuild in the desired order. This is safe to run repeatedly.
+new_inner = '\n' + buru + '\n' + suzuki + '\n' + yokota + '\n'
+s = s[:stage_match.start(2)] + new_inner + s[stage_match.end(2):]
 
 css = r'''
 /* V68 BURU FIRST */
