@@ -90,6 +90,69 @@ css = r'''
     overflow-wrap:anywhere!important;
   }
 
+  /* HERO PROOF STATS: compact, balanced 2 x 2 card on phones */
+  .proof-wrap{
+    padding:0 0 8px!important;
+    background:#fff!important;
+  }
+  .proof-wrap .container{
+    width:calc(100% - 24px)!important;
+    max-width:calc(100% - 24px)!important;
+  }
+  .proof{
+    width:100%!important;
+    max-width:100%!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    transform:translateY(-10px)!important;
+    border-radius:24px!important;
+    border:1px solid #dfe6ee!important;
+    overflow:hidden!important;
+    box-shadow:0 14px 34px rgba(5,25,57,.10)!important;
+    background:#fff!important;
+  }
+  .proof-item{
+    min-width:0!important;
+    min-height:118px!important;
+    padding:18px 10px 16px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    border-right:1px solid #dfe6ee!important;
+    border-bottom:0!important;
+  }
+  .proof-item:nth-child(1),
+  .proof-item:nth-child(2){
+    border-bottom:1px solid #dfe6ee!important;
+  }
+  .proof-item:nth-child(2),
+  .proof-item:nth-child(4){
+    border-right:0!important;
+  }
+  .proof-item strong{
+    display:block!important;
+    margin:0!important;
+    color:#071d3f!important;
+    font-size:clamp(1.95rem,8.7vw,2.35rem)!important;
+    line-height:1!important;
+    letter-spacing:-.04em!important;
+    white-space:nowrap!important;
+  }
+  .proof-item span{
+    display:block!important;
+    width:100%!important;
+    max-width:150px!important;
+    margin:10px auto 0!important;
+    color:#7a8798!important;
+    font-size:.70rem!important;
+    font-weight:850!important;
+    line-height:1.45!important;
+    letter-spacing:0!important;
+    overflow-wrap:normal!important;
+    word-break:keep-all!important;
+  }
+
   /* Hero mascot */
   .hero-side{
     width:100%!important;
@@ -173,6 +236,19 @@ css = r'''
   #infra .section-head h2{
     font-size:clamp(1.9rem,8.7vw,2.25rem)!important;
   }
+  .proof-item{
+    min-height:112px!important;
+    padding:16px 8px 14px!important;
+  }
+  .proof-item strong{
+    font-size:clamp(1.85rem,8.4vw,2.2rem)!important;
+  }
+  .proof-item span{
+    max-width:140px!important;
+    margin-top:9px!important;
+    font-size:.67rem!important;
+    line-height:1.42!important;
+  }
   .hero-side .hero-buru{
     width:165px!important;
     max-width:48vw!important;
@@ -196,6 +272,6 @@ s = s.replace('</style>', css + '\n</style>', 1)
 
 p.write_text(s, encoding='utf-8')
 
-for token in ['V68 FINAL LAYOUT CLEANUP', '#infra .section-head', '#samples .video-card video', '.hero-side .hero-buru', 'TOP HERO BACKGROUND VIDEO']:
+for token in ['V68 FINAL LAYOUT CLEANUP', '#infra .section-head', '#samples .video-card video', '.hero-side .hero-buru', 'TOP HERO BACKGROUND VIDEO', 'HERO PROOF STATS']:
     if token not in s:
         raise SystemExit(f'Missing final layout token: {token}')
