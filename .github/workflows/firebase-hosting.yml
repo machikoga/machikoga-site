@@ -35,6 +35,9 @@ jobs:
       - name: Apply local price copy
         run: python3 scripts/update_local_price_copy.py
 
+      - name: Fix mobile horizontal overflow
+        run: python3 scripts/fix_mobile_overflow.py
+
       - name: Build downloadable V68 backup
         run: |
           mkdir -p exports
@@ -50,7 +53,7 @@ jobs:
           git add public/index.html public/assets/buru-hero-navy.webp || true
           git add -f exports/machikoga_V68_complete_2026-09-10.zip
           if ! git diff --cached --quiet; then
-            git commit -m "Export completed V68 backup [skip ci]"
+            git commit -m "Apply mobile overflow fix and export backup [skip ci]"
             git push
           fi
 
