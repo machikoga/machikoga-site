@@ -25,7 +25,7 @@ jobs:
           from PIL import Image
           import re
 
-          # Build a dedicated transparent hero image from the existing Buru artwork.
+          # Build a dedicated transparent hero image from the existing mascot artwork.
           src = Path('public/assets/buru-v67.webp')
           dst = Path('public/assets/buru-hero-transparent.webp')
           im = Image.open(src).convert('RGBA')
@@ -69,7 +69,7 @@ jobs:
           # Suzuki portrait: keep the fresh asset request.
           s = re.sub(r'assets/partners/suzuki\.webp\?v=[0-9-]+', 'assets/partners/suzuki.webp?v=20260910-8', s)
 
-          # Hero Buru: use the newly generated transparent-only asset.
+          # Hero mascot: use the generated transparent asset.
           s = re.sub(
               r'(<img class="hero-buru" src=")[^"]+(" alt="まちこが ぶる">)',
               r'\1assets/buru-hero-transparent.webp?v=20260910-1\2',
@@ -91,14 +91,37 @@ jobs:
               count=1
           )
 
+          # Brand acronym: BURU -> BUL everywhere it is shown as uppercase text.
+          s = s.replace('BURU', 'BUL')
+
+          # Mobile polish: make the fixed LINE / Instagram bar less intrusive.
+          s = re.sub(
+              r'\.mobile-dock\{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:none;gap:8px\}',
+              '.mobile-dock{position:fixed;left:12px;right:12px;bottom:max(8px,env(safe-area-inset-bottom));z-index:120;display:none;gap:6px}',
+              s,
+              count=1
+          )
+          s = re.sub(
+              r'\.mobile-dock a\{flex:1;min-height:48px;font-size:\.82rem;padding:0 10px\}',
+              '.mobile-dock a{flex:1;min-height:42px;font-size:.76rem;padding:0 8px;box-shadow:0 8px 20px rgba(3,18,42,.18)}',
+              s,
+              count=1
+          )
+          s = s.replace('.section{padding:72px 0}', '.section{padding:66px 0}')
+          s = s.replace('footer{padding-bottom:82px}', 'footer{padding-bottom:68px}')
+
           p.write_text(s, encoding='utf-8')
 
           if not dst.exists() or dst.stat().st_size == 0:
-              raise SystemExit('Transparent Buru asset was not generated')
+              raise SystemExit('Transparent mascot asset was not generated')
           if 'assets/buru-hero-transparent.webp?v=20260910-1' not in s:
-              raise SystemExit('Hero Buru source was not updated')
+              raise SystemExit('Hero mascot source was not updated')
           if 'assets/partners/suzuki.webp?v=20260910-8' not in s:
               raise SystemExit('Suzuki cache-bust replacement was not applied')
+          if 'BURU' in s:
+              raise SystemExit('BURU remains in public/index.html')
+          if 'BUL / LOCAL SNS' not in s:
+              raise SystemExit('BUL label replacement was not applied')
           PY
 
       - name: Save V68 fixes to source
@@ -107,7 +130,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add public/index.html public/assets/buru-hero-transparent.webp
-            git commit -m "Apply transparent hero Buru [skip ci]"
+            git commit -m "Apply V68 BUL and mobile polish [skip ci]"
             git push
           fi
 
