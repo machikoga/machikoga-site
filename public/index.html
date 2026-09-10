@@ -450,60 +450,68 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f0
 /* V68 FINAL COPY PASS */
 .hero-motto{display:inline-flex;margin-bottom:10px;padding:6px 12px;border-radius:999px;background:rgba(240,217,149,.12);border:1px solid rgba(240,217,149,.35);color:#f0d995;font-size:.82rem;font-weight:900;letter-spacing:.05em}
 
-/* Text alignment system */
+/* Consistent alignment */
 .cta-in,.pricing-final,.other-services,.compare,.offer-card,.result-impact,.empathy-card,.setup-card-final,.plan-card{text-align:left!important}
-.cta-actions{justify-content:flex-start!important}
-.cta-note{display:block;text-align:left!important}
-.other-service-body{text-align:left!important}
-
-/* Headings should break by phrase, not character */
+.cta-actions{justify-content:flex-start!important}.cta-note{display:block;text-align:left!important}.other-service-body{text-align:left!important}
 .section h2,.section h3{word-break:keep-all;overflow-wrap:normal;text-wrap:balance}
+
+/* Hero bubble: two clean lines */
+.hero-bubble{width:min(480px,100%)!important;max-width:480px!important;padding:20px 22px!important}
+.hero-bubble-main{font-size:clamp(1.15rem,1.55vw,1.52rem)!important;line-height:1.45!important;letter-spacing:-.02em!important}
+.hero-bubble-main span{display:inline-block!important;white-space:nowrap!important;color:#f0d995!important;font-size:1.08em!important}
+.hero-bubble-sub{font-size:.86rem!important;line-height:1.6!important}
+
+/* CEO card: exactly two headline rows on desktop */
+.focus-message{display:block!important;line-height:1.02!important;letter-spacing:-.04em!important}
+.focus-message span{display:block!important;font-size:clamp(1.8rem,2.8vw,2.7rem)!important;color:#fff!important}
+.focus-message em{display:block!important;margin-top:6px!important;font-size:clamp(2.05rem,3.55vw,3.45rem)!important;color:#f0d995!important;font-style:normal!important;white-space:nowrap!important}
+.buru-tip-final p{margin-top:18px!important;max-width:34em!important;font-size:.94rem!important;line-height:1.75!important}
+
+/* Result cards: prevent ugly single-character wraps */
+.result-impact>strong{font-size:clamp(1.35rem,2vw,1.75rem)!important;line-height:1.28!important}
+.result-long-line{display:inline-block;white-space:nowrap;font-size:.94em}
+.result-big-number{display:inline-block;font-size:1.35em;line-height:1.05}
 
 /* Comparison */
 .compare{background:linear-gradient(180deg,#fff 0%,#f4f7fb 100%)}
-.compare h2{max-width:12em;color:var(--navy)}
-.compare-lead{max-width:860px;margin-top:16px}
+.compare h2{max-width:11em;color:var(--navy)}
+.compare-lead{max-width:900px;margin-top:16px}
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px;align-items:stretch}
-.compare-card{padding:30px;border-radius:28px;border:1px solid var(--line);box-shadow:0 18px 44px rgba(5,25,57,.08)}
+.compare-card{padding:30px;border-radius:30px;border:1px solid var(--line);box-shadow:0 18px 44px rgba(5,25,57,.08)}
 .compare-market{background:#fff}
 .compare-machikoga{background:linear-gradient(145deg,#061a38 0%,#0a3567 62%,#0a6570 100%);color:#fff;border-color:rgba(240,217,149,.35)}
 .compare-label{display:inline-flex;padding:6px 10px;border-radius:999px;background:#eef2f7;color:#516078;font-size:.67rem;font-weight:900;letter-spacing:.08em}
 .compare-machikoga .compare-label{background:#f0d995;color:#061a38}
-.compare-card h3{margin-top:14px;font-size:clamp(1.55rem,2.4vw,2.25rem);line-height:1.25;color:var(--navy)}
-.compare-machikoga h3{color:#fff}
+.compare-card h3{margin-top:14px;font-size:clamp(1.55rem,2.4vw,2.2rem);line-height:1.24;color:var(--navy)}
+.compare-machikoga h3{color:#fff}.compare-price-accent{color:#f0d995}
 .market-prices,.compare-points{display:grid;gap:9px;margin-top:20px}
-.market-prices div,.compare-points div{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 15px;border-radius:16px;background:#f5f7fa;border:1px solid #e2e8ef}
-.market-prices b{font-size:1.2rem;color:#9b6a26}.market-prices span{font-size:.78rem;color:#66748a;font-weight:800;text-align:right}
+.market-prices div,.compare-points div{display:grid;grid-template-columns:minmax(120px,.72fr) 1fr;align-items:center;gap:14px;padding:14px 16px;border-radius:17px;background:#f5f7fa;border:1px solid #e2e8ef}
+.market-prices b{font-size:1.22rem;color:#9b6a26;white-space:nowrap}.market-prices span{font-size:.8rem;color:#66748a;font-weight:800}
 .compare-points div{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.12)}
-.compare-points b{color:#f0d995}.compare-points span{color:rgba(255,255,255,.72);font-size:.78rem;text-align:right}
-.compare-market p{margin-top:18px;color:var(--text);font-size:.86rem}
-.compare-main-copy{display:block;margin-top:21px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);font-size:1.08rem;line-height:1.55;color:#fff}
-.compare-note{display:block;margin-top:13px;color:#7b8798;font-size:.68rem;line-height:1.6}
+.compare-points b{color:#f0d995}.compare-points span{color:rgba(255,255,255,.76);font-size:.8rem}
+.compare-market p{margin-top:18px;color:var(--text);font-size:.86rem}.compare-main-copy{display:block;margin-top:21px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);font-size:clamp(1.2rem,1.8vw,1.55rem);line-height:1.5;color:#fff}.compare-subcopy{margin-top:10px;color:rgba(255,255,255,.73);font-size:.86rem;line-height:1.7}
+.compare-summary{display:grid;grid-template-columns:auto auto 34px auto 1fr;gap:12px;align-items:center;margin-top:18px;padding:16px 18px;border-radius:18px;background:#071d3f;color:#fff;font-size:.8rem}.compare-summary span{color:#f0d995;font-weight:900}.compare-summary b{font-weight:800}.compare-summary i{font-style:normal;text-align:center;color:#46c5b8;font-size:1.2rem}.compare-summary strong{font-size:1rem}
+.compare-note{display:block;margin-top:12px;color:#7b8798;font-size:.66rem;line-height:1.6}
 
-/* Other services image quality and proportions */
-.other-service-photo{aspect-ratio:16/9!important;background:#0b2348}
-.other-service-photo img{width:100%;height:100%;object-fit:cover;image-rendering:auto}
-.other-service-grid .other-service-card:nth-child(1) .other-service-photo img{object-position:center 42%}
-.other-service-grid .other-service-card:nth-child(2) .other-service-photo img{object-position:center center}
-.other-service-body h3{font-size:clamp(1.35rem,2vw,1.7rem);line-height:1.3}
+/* Other services / general text balance */
+.other-service-photo{aspect-ratio:16/9!important;background:#0b2348}.other-service-photo img{width:100%;height:100%;object-fit:cover;image-rendering:auto}.other-service-body h3{font-size:clamp(1.35rem,2vw,1.7rem);line-height:1.3}.offer-card p,.result-impact p,.plan-card p,.other-service-body p{line-height:1.7}.offer-card,.result-impact,.plan-card,.other-service-card{min-width:0}
+.pricing-final .reference-price strong{font-size:clamp(1.45rem,2.2vw,2rem)!important}.pricing-final .plan-card h3{font-size:clamp(1.35rem,2vw,1.75rem)!important}.pricing-final .plan-card h3 small{font-size:.68rem!important;color:#9b6a26!important}
 
-/* Card text balance */
-.offer-card p,.result-impact p,.plan-card p,.other-service-body p{line-height:1.7}
-.offer-card,.result-impact,.plan-card,.other-service-card{min-width:0}
-
-/* Pricing: amounts are references, not the hero */
-.pricing-final .reference-price strong{font-size:clamp(1.45rem,2.2vw,2rem)!important}
-.pricing-final .plan-card h3{font-size:clamp(1.35rem,2vw,1.75rem)!important}
-.pricing-final .plan-card h3 small{font-size:.68rem!important;color:#9b6a26!important}
-
-@media(max-width:900px){.compare-grid{grid-template-columns:1fr}}
+@media(max-width:980px){
+  .focus-message em{white-space:normal!important}
+  .compare-grid{grid-template-columns:1fr}
+  .compare-summary{grid-template-columns:1fr;gap:5px}.compare-summary i{transform:rotate(90deg)}
+}
 @media(max-width:780px){
   .hero-motto{font-size:.73rem}
+  .hero-bubble{max-width:100%!important}
+  .hero-bubble-main{font-size:1.05rem!important}
+  .hero-bubble-main span{white-space:normal!important}
+  .focus-message span{font-size:1.65rem!important}.focus-message em{font-size:2.2rem!important}
   .compare-card{padding:22px 20px}
-  .market-prices div,.compare-points div{align-items:flex-start;flex-direction:column;gap:3px}
-  .market-prices span,.compare-points span{text-align:left}
-  .cta-actions{display:grid!important;grid-template-columns:1fr!important;width:100%}
-  .cta-actions .btn{width:100%}
+  .market-prices div,.compare-points div{grid-template-columns:1fr;gap:3px}
+  .market-prices b{white-space:normal}
+  .cta-actions{display:grid!important;grid-template-columns:1fr!important;width:100%}.cta-actions .btn{width:100%}
 }
 
 </style>
@@ -549,7 +557,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f0
 <article class="result-impact"><span class="result-type">飲食店</span><small>集客コンサル</small><strong>2ヶ月で<br>ランチ客数120%</strong></article>
 <article class="result-impact"><span class="result-type">求人</span><small>アルバイト募集投稿</small><strong>投稿後1日で<br>6名応募</strong><p>採用決定</p></article>
 <article class="result-impact"><span class="result-type">整体院</span><small>店舗アピール投稿</small><strong>翌日<br>新規顧客5名</strong><p>保存10</p></article>
-<article class="result-impact"><span class="result-type">カフェ</span><small>新規アカウント立ち上げ</small><strong>3ヶ月で<br>小金井フォロワー300人</strong><p>1日1組「Instagramを見た」で新規来店</p></article>
+<article class="result-impact"><span class="result-type">カフェ</span><small>新規アカウント立ち上げ</small><strong>3ヶ月で<br><span class="result-long-line">小金井フォロワー</span><br><span class="result-big-number">300人</span></strong><p>1日1組「Instagramを見た」で新規来店</p></article>
 <article class="result-impact"><span class="result-type">ドローン</span><small>Google閲覧数</small><strong>1週間で<br>過去の閲覧数を突破</strong><p>閲覧数トップへ</p></article>
 <article class="result-impact"><span class="result-type">看護師採用</span><small>訪問ナース紹介</small><strong>看護師<br>2名採用</strong></article>
 </div><details class="results-more"><summary>その他の成果を見る ＋</summary><div class="results-list"><div class="result-row"><b>美容室</b><span>店舗アピール投稿</span><strong>周年イベント翌日 新規来客4名</strong></div><div class="result-row"><b>スポーツスクール</b><span>会員募集</span><strong>翌日 新規体験4名・保存11</strong></div><div class="result-row"><b>ラーメン店</b><span>特集記事掲載</span><strong>混雑が続出するほど反響</strong></div><div class="result-row"><b>小金井ゆるっと会</b><span>地域交流イベント</span><strong>定期開催へ。地域コミュニティ形成</strong></div><div class="result-row"><b>ハウスクリーニング</b><span>新規アカウント立ち上げ</span><strong>3ヶ月で多摩エリアフォロワー700人</strong></div><div class="result-row"><b>バンド</b><span>新規アカウント立ち上げ</span><strong>初期設計から東京都・大阪へ認知拡大</strong></div></div></details><p class="results-note">※成果事例は一部抜粋です。数値・実績は2026年8月時点を含みます。</p></div></section>
@@ -557,7 +565,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f0
 <section class="section easy" id="easy"><div class="container"><div class="easy-wrap"><div><span class="kicker">KEEP IT SIMPLE</span><h2>やっていただくことは、<br>基本この3つ。</h2><p class="lead">御社専用の記事作成AIを使いながら、日々の運用をシンプルにします。</p></div><div class="easy-list"><div><b>01</b><strong>1日2分のGoogle投稿</strong><span>最新情報を止めない</span></div><div><b>02</b><strong>口コミ依頼 ＆ 口コミ返信</strong><span>信頼をストックする</span></div><div><b>03</b><strong>ストーリーズ投稿</strong><span>既存ファンとの関係を育てる</span></div></div></div><div class="support-row"><span>カスタムAI</span><span>LINEチャット</span><span>定期ZOOM勉強・相談会</span><span>事例共有</span></div></div></section>
 <section class="section community" id="community"><div class="container"><span class="kicker">DON'T CHASE BUZZ</span><h2>1万人にバズるより、<br>100人の「また来る人」を。</h2><p class="lead fan-lead">目指すのは、全国に散らばった薄いフォロワーではなく、地域で店を愛し、通い、紹介してくれるファン。さらに応援までしてくれるエバンジェリストを育てます。</p><div class="fan-flow"><div><span>PARTICIPANT</span><b>フォロワー</b></div><div><span>FAN</span><b>来店・反応</b></div><div><span>LOYAL</span><b>リピート</b></div><div class="fan-top"><span>EVANGELIST</span><b>紹介・応援</b></div></div></div></section>
 
-<section class="section compare" id="compare"><div class="container"><span class="kicker">COST & LOCAL SUPPORT</span><h2>一般的な相場と比べても、<br>かなり始めやすい。</h2><p class="lead compare-lead">WEB・SNS・Google・撮影を別々に頼むのではなく、必要なものだけをまとめて設計。しかも、小金井を知るぶるが一緒に伴走します。</p><div class="compare-grid"><article class="compare-card compare-market"><span class="compare-label">一般的な相場目安</span><h3>施策ごとに別々に頼むと、<br>費用も管理も増えやすい。</h3><div class="market-prices"><div><b>10〜50万円</b><span>Googleマップ初期設計</span></div><div><b>10〜50万円</b><span>Instagram初期設計</span></div><div><b>50万円〜</b><span>サイト構築</span></div></div><p>制作会社・SNS運用・Google対策・撮影など、窓口が分かれるほど地域の情報共有や管理コストも増えがちです。</p></article><article class="compare-card compare-machikoga"><span class="compare-label">まちこが</span><h3>必要な土台をまとめて、<br>参考18万円から。</h3><div class="compare-points"><div><b>必要な施策だけ</b><span>全部を契約する必要なし</span></div><div><b>地域導線を一括設計</b><span>Instagram × Google × 小金井</span></div><div><b>ぶるが伴走</b><span>小金井在住11年目・地域目線</span></div></div><strong class="compare-main-copy">大きく作るより、必要なところから。<br>小金井を知るぶるが、一緒に育てます。</strong></article></div><small class="compare-note">※相場は当社説明資料で使用している一般的な目安です。内容・範囲・事業者により異なります。まちこがの表示金額も参考価格で、実際はご相談内容に合わせて個別にご提案します。</small></div></section>
+<section class="section compare" id="compare"><div class="container"><span class="kicker">ALL-IN-ONE COST</span><h2>別々に頼むより、<br>まとめるから始めやすい。</h2><p class="lead compare-lead">SNS・Googleマップ・WEB・撮影を別会社へ分けると、費用も窓口も増えがちです。まちこがは、小金井で必要な導線をひとつにまとめ、必要な分だけ設計します。</p><div class="compare-grid"><article class="compare-card compare-market"><span class="compare-label">一般的な別発注の目安</span><h3>それぞれ外注すると、<br>費用が積み重なります。</h3><div class="market-prices"><div><b>月5〜50万円</b><span>SNS運用代行</span></div><div><b>月1〜5万円</b><span>MEO / Googleマップ対策</span></div><div><b>50〜100万円</b><span>企業サイト制作の一例</span></div><div><b>別途</b><span>写真・動画撮影など</span></div></div><p>依頼範囲や会社によって大きく変わりますが、施策ごとに会社を分けると、初期費用と月額費用が重なりやすくなります。</p></article><article class="compare-card compare-machikoga"><span class="compare-label">まちこが｜ALL IN ONE</span><h3>必要な土台をまとめて、<br><span class="compare-price-accent">参考18万円から。</span></h3><div class="compare-points"><div><b>一括設計</b><span>Instagram × Google × 小金井ポータル</span></div><div><b>必要な分だけ</b><span>全部を契約する必要はありません</span></div><div><b>地域を知る伴走者</b><span>小金井在住11年目のぶるが一緒に進めます</span></div></div><strong class="compare-main-copy">安いだけではなく、<br>小金井で使える形まで一緒につくる。</strong><p class="compare-subcopy">大きな制作会社に丸投げするのではなく、地域の現場を知る人と、必要なところから始められます。</p></article></div><div class="compare-summary"><span>一般的な別発注</span><b>複数社・複数費用・複数窓口</b><i>→</i><span>まちこが</span><strong>必要な施策を、ひとつの窓口で。</strong></div><small class="compare-note">※一般的な相場は2026年公開の相場記事を参考にした目安です。SNS運用：月5〜50万円程度、MEO：月1〜5万円程度、企業サイト：50〜100万円程度の例があります。内容・範囲・事業者により異なります。参考：Epace、株式会社オークス、Web幹事。まちこがの金額も参考価格で、実際は内容に合わせて個別にご提案します。</small></div></section>
 <section class="section pricing pricing-final" id="pricing"><div class="container"><span class="kicker">PRICE GUIDE</span><h2>料金は、事業に合わせて<br>オーダーメイド。</h2><p class="lead pricing-lead">下記は参考価格です。必要な施策・撮影範囲・更新頻度・運用サポートに合わせて、内容も金額も個別にご提案します。</p><div class="custom-note"><strong>まず「何が必要か」を一緒に整理します。</strong><span>全部を入れる必要はありません。今の発信・人員・予算に合わせて組み立てます。</span></div><div class="setup-card setup-card-final"><div><span>INITIAL SETUP / REFERENCE</span><h3>初期設計の参考</h3><p>Googleマップ / Instagram / 小金井ポータルなど、必要な土台をまとめて設計。</p></div><div class="reference-price"><small>参考価格</small><strong>180,000円</strong><span>税込</span></div></div><div class="setup-items setup-items-final"><span>Googleマップ初期設計</span><span>Instagram初期設計</span><span>小金井ポータル</span><span>カスタムAI</span><span>口コミ導線</span><span>掲載ページ制作</span><span>写真・動画・空間3D</span><span>Google連携</span></div><div class="plan-grid plan-grid-final"><article class="plan-card"><span class="plan-label">掲載・地域導線</span><h3><small>参考</small> 9,800円/月</h3><p>まず小金井で見つかる入口を持ちたい場合の一例。</p></article><article class="plan-card featured"><span class="plan-label">スタンダード</span><h3><small>参考</small> 19,800円/月</h3><p>自分で発信しながら、Googleと地域導線を育てる場合の一例。</p></article><article class="plan-card"><span class="plan-label">運用サポート</span><h3><small>参考</small> 59,800円/月</h3><p>日々の更新・投稿までサポートする場合の一例。</p></article></div><div class="price-note price-note-final"><span>※表示金額は参考です。サービス内容・撮影・更新頻度などにより変わります。</span><span>※御社の課題と予算に合わせて、必要なものだけを組み合わせます。</span></div><div class="section-cta"><a class="btn gold" href="#contact">まず必要な内容を相談する</a></div></div></section>
 <section class="section other-services" id="other-services"><div class="container"><span class="kicker">OTHER SUPPORT</span><h2>講座・セミナー・取材も。<br>小金井の発信なら、何でもご相談ください。</h2><p class="lead other-services-lead">メインの集客支援とは別に、学びたい・伝えたい・広めたいというご相談にも対応しています。</p><div class="other-service-grid"><article class="other-service-card"><div class="other-service-photo"><img src="assets/sns-course.webp" alt="SNS講座の様子"></div><div class="other-service-body"><span class="other-service-tag">SNS COURSE</span><h3>SNS講座</h3><p>Instagram・Google・地域発信を、自分たちで続けられる形に。実践しながら身につける講座です。</p><a class="other-service-link" href="#contact">SNS講座について相談する →</a></div></article><article class="other-service-card"><div class="other-service-photo"><img src="assets/sns-ai-seminar.webp" alt="SNS・AIセミナーの様子"></div><div class="other-service-body"><span class="other-service-tag">SNS × AI SEMINAR</span><h3>SNS・AIセミナー</h3><p>SNS・AI・Google活用などを、地域ビジネスの現場目線でわかりやすく。企業・団体・イベントでの登壇もご相談ください。</p><a class="other-service-link" href="#contact">セミナーについて相談する →</a></div></article><article class="other-service-card other-service-consult"><div class="other-service-consult-visual"><img src="assets/buru-v67.webp" alt="ぶる"></div><div class="other-service-body"><span class="other-service-tag">OPEN CONSULTATION</span><h3>取材・広告・HP作成など、なんでも相談。</h3><p>取材依頼、広告・PR、ホームページ作成、地域イベント、コラボ企画など。内容がまだ固まっていなくても大丈夫です。</p><strong class="other-service-any">何でもご相談ください。</strong><a class="other-service-link" href="#contact">まず相談する →</a></div></article></div></div></section>
 <section class="section about"><div class="container about-wrap"><article class="about-visual"><img src="assets/buru-v67.webp" alt="ぶる"></article><div class="about-copy"><span class="kicker">ABOUT MACHIKOGA</span><h2>一店が強くなると、<br>小金井も強くなる。</h2><p>小金井で頑張る事業者が、ちゃんと見つかり、選ばれ、続いていく。そのための情報インフラを、事業者さんと一緒に育てます。</p></div></div></section>
