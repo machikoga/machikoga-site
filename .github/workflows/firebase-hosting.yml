@@ -26,6 +26,9 @@ jobs:
       - name: Finalize sales structure
         run: python3 scripts/finalize_v68_sales.py
 
+      - name: Emphasize Buru tip
+        run: python3 scripts/final_touch_buru_tip.py
+
       - name: Save V68 fixes to source
         run: |
           if ! git diff --quiet -- public/index.html public/assets/buru-hero-transparent.webp; then
