@@ -90,7 +90,7 @@ css = r'''
     overflow-wrap:anywhere!important;
   }
 
-  /* The hero mascot was reading too large on iPhone after the overflow fix. */
+  /* Hero mascot */
   .hero-side{
     width:100%!important;
     max-width:100%!important;
@@ -105,12 +105,37 @@ css = r'''
     object-position:center!important;
     margin:0 auto!important;
   }
+
+  /* TOP HERO BACKGROUND VIDEO:
+     On phones show the whole 16:9 frame instead of cropping/zooming it
+     to the portrait screen. PC remains unchanged. */
+  .hero-media{
+    background:#03142d!important;
+    overflow:hidden!important;
+  }
   .hero-media video{
-    transform:none!important;
+    position:absolute!important;
+    inset:0 0 auto 0!important;
+    width:100%!important;
+    height:56.25vw!important;
+    min-height:180px!important;
+    max-height:250px!important;
+    object-fit:contain!important;
     object-position:center center!important;
+    transform:none!important;
+    filter:saturate(.92) contrast(1.04) brightness(.78)!important;
+  }
+  .hero-overlay{
+    background:linear-gradient(
+      180deg,
+      rgba(3,18,42,.34) 0%,
+      rgba(3,18,42,.62) 180px,
+      rgba(3,18,42,.91) 280px,
+      rgba(3,18,42,.97) 100%
+    )!important;
   }
 
-  /* Drone / video examples: show the whole context at a readable phone size. */
+  /* Video examples lower on the page */
   #samples .sample-grid,
   #samples .more-grid{
     grid-template-columns:1fr!important;
@@ -154,6 +179,11 @@ css = r'''
     height:190px!important;
     max-height:190px!important;
   }
+  .hero-media video{
+    height:56.25vw!important;
+    min-height:0!important;
+    max-height:242px!important;
+  }
   #samples .video-card video{
     max-height:195px!important;
   }
@@ -166,6 +196,6 @@ s = s.replace('</style>', css + '\n</style>', 1)
 
 p.write_text(s, encoding='utf-8')
 
-for token in ['V68 FINAL LAYOUT CLEANUP', '#infra .section-head', '#samples .video-card video', '.hero-side .hero-buru']:
+for token in ['V68 FINAL LAYOUT CLEANUP', '#infra .section-head', '#samples .video-card video', '.hero-side .hero-buru', 'TOP HERO BACKGROUND VIDEO']:
     if token not in s:
         raise SystemExit(f'Missing final layout token: {token}')
