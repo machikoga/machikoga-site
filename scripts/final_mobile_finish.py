@@ -18,6 +18,36 @@ css = r'''
 }
 
 @media(max-width:780px){
+  /* Keep the mobile header / hamburger menu fixed at the top while scrolling. */
+  .header{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+    z-index:220!important;
+    background:rgba(3,16,38,.97)!important;
+    backdrop-filter:blur(14px)!important;
+    -webkit-backdrop-filter:blur(14px)!important;
+  }
+  .header-in{
+    height:64px!important;
+  }
+  .hero{
+    padding-top:64px!important;
+  }
+  .menu-toggle{
+    position:relative!important;
+    z-index:221!important;
+  }
+  .mobile-menu-panel{
+    top:72px!important;
+    z-index:210!important;
+  }
+  .menu-backdrop{
+    z-index:200!important;
+  }
+
   /* Keep the 5,500 / 85% stats card fully visible below the hero. */
   .proof-wrap{
     position:relative!important;
@@ -88,6 +118,6 @@ s = s.replace('</style>', css + '\n</style>', 1)
 
 p.write_text(s, encoding='utf-8')
 
-for token in ['V68 FINAL MOBILE FINISH', '.proof-wrap', '.platform-instagram .platform-sub', '.platform-google .platform-sub']:
+for token in ['V68 FINAL MOBILE FINISH', '.proof-wrap', '.platform-instagram .platform-sub', '.platform-google .platform-sub', 'position:fixed!important', '.menu-toggle']:
     if token not in s:
         raise SystemExit(f'Missing final mobile finish token: {token}')
