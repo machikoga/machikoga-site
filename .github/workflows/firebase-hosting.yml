@@ -66,18 +66,14 @@ jobs:
           p = Path('public/index.html')
           s = p.read_text(encoding='utf-8')
 
-          # Suzuki portrait: keep the fresh asset request.
+          # Stable assets.
           s = re.sub(r'assets/partners/suzuki\.webp\?v=[0-9-]+', 'assets/partners/suzuki.webp?v=20260910-8', s)
-
-          # Hero mascot: use the generated transparent asset.
           s = re.sub(
               r'(<img class="hero-buru" src=")[^"]+(" alt="まちこが ぶる">)',
               r'\1assets/buru-hero-transparent.webp?v=20260910-1\2',
               s,
               count=1
           )
-
-          # Keep transparent framing on desktop/mobile.
           s = re.sub(
               r'\.hero-buru\{width:min\(380px,92%\);height:430px;[^}]*\}',
               '.hero-buru{width:min(380px,92%);height:430px;object-fit:contain;object-position:center center;border-radius:0;border:0;background:transparent;box-shadow:none}',
@@ -91,24 +87,78 @@ jobs:
               count=1
           )
 
-          # Brand acronym: BURU -> BUL everywhere it is shown as uppercase text.
+          # Brand acronym.
           s = s.replace('BURU', 'BUL')
 
-          # Mobile polish: make the fixed LINE / Instagram bar less intrusive.
+          # Hero and navigation: make the action clearer.
+          s = s.replace('>実例を見る<', '>実績・事例を見る<')
+          s = s.replace('>今やらないと？<', '>なぜ今？<')
+
+          # WHY NOW: positive, easier-to-understand explanation.
+          replacements = {
+              '今やらないと、どうなる？': 'なぜ、今整えるのか。',
+              'お店の価値が落ちるのではありません。<strong>見つけられ方の差</strong>で、静かに周辺地域や競合へ流れていきます。': 'お店の価値ではなく、<strong>見つけられ方</strong>で差がつく時代です。SNS・Google・地域発信をつなぎ、選ばれる入口を整えます。',
+              'AIに認識されにくくなる': 'AIに伝わる情報を増やす',
+              'SNS・Google・写真・更新情報が少ないと、AIが街や事業を理解する材料が不足します。': 'SNS・Google・写真・更新情報をつなぐと、AIが事業の特徴を理解しやすくなります。',
+              '情報が薄い → 候補に入りにくい': '情報を整える → 候補に入りやすくなる',
+              'Googleで先に見つかる店へ': 'Googleで、先に見つかる店へ',
+              '検索・地図・口コミ・写真が整っている店は、比較のスタート地点から有利です。': '検索・地図・口コミ・写真が整っているほど、比較のスタート地点に立ちやすくなります。',
+              '見つからない → 良さを知る前に離脱': '見つかる → 良さを知ってもらえる',
+              '周辺地域へ静かに流れる': '地域の中で選ばれる土台をつくる',
+              '発信が強い地域・店舗が先に候補になると、地元のお客様も自然にそちらへ動きます。': '発信・検索・口コミがつながると、小金井の中で見つかり、選ばれる理由が積み上がります。',
+              '良い店でも、「先に見つかる場所」に人は流れる。': '良い店だからこそ、見つかる仕組みまで整える。',
+              'AI・Googleの変化に合わせ、検索・地図・SNSの情報をつなげておくことが、これからの地域ビジネスの土台になります。': 'Instagram・Google・まちアカ・地域発信をつなげておくことが、これからの地域ビジネスの土台になります。',
+              '必要に応じて、Instagram・講座・セミナーまで広げます。': 'まずは今ある発信を整え、必要に応じてInstagram強化・講座・セミナーまで広げます。',
+              '今ある発信を、事業で使える武器へ。Instagram・Google・地域導線まで、無理なく続く形に整えます。': '今ある発信を、事業で使える武器へ。外注して終わりではなく、Instagram・Google・地域導線を無理なく続く形に整えます。',
+              'SNSと同時にGoogleを整え、地図・検索・口コミ・AIの候補から小金井の事業が見えなくならない仕組みを育てます。': 'SNSとGoogleを同時に整え、地図・検索・口コミ・AIからも見つけてもらえる土台を育てます。'
+          }
+          for old, new in replacements.items():
+              s = s.replace(old, new)
+
+          # Add one clear conversion point after the 3-person team, once only.
+          if '3人タッグに相談する' not in s:
+              s = re.sub(
+                  r'(<div class="trio-result"><span>見つかる</span><b>×</b><span>届く</span><b>×</b><span>伝わる</span><strong>＝ 小金井で選ばれる</strong></div>)(</div></section>)',
+                  r'\1<div class="section-cta"><a class="btn navy" href="#contact">3人タッグに相談する</a></div>\2',
+                  s,
+                  count=1
+              )
+
+          # Final CTA reassurance.
+          if '相談だけでも大丈夫です。' not in s:
+              s = s.replace(
+                  '<div class="cta-actions"><a class="btn line" href="https://lin.ee/XkEC3Il" target="_blank" rel="noopener">LINEで無料相談</a><a class="btn white" href="https://www.instagram.com/machikoga/" target="_blank" rel="noopener">Instagram DMで相談</a></div>',
+                  '<div class="cta-actions"><a class="btn line" href="https://lin.ee/XkEC3Il" target="_blank" rel="noopener">LINEで無料相談</a><a class="btn white" href="https://www.instagram.com/machikoga/" target="_blank" rel="noopener">Instagram DMで相談</a></div><small class="cta-note">相談だけでも大丈夫です。今の発信を見ながら、優先順位を一緒に整理します。</small>'
+              )
+
+          # Mobile dock wording and spacing.
+          s = s.replace('>LINE相談<', '>LINEで相談<')
           s = re.sub(
-              r'\.mobile-dock\{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:none;gap:8px\}',
+              r'\.mobile-dock\{position:fixed;left:[^}]+\}',
               '.mobile-dock{position:fixed;left:12px;right:12px;bottom:max(8px,env(safe-area-inset-bottom));z-index:120;display:none;gap:6px}',
               s,
               count=1
           )
           s = re.sub(
-              r'\.mobile-dock a\{flex:1;min-height:48px;font-size:\.82rem;padding:0 10px\}',
+              r'\.mobile-dock a\{[^}]+\}',
               '.mobile-dock a{flex:1;min-height:42px;font-size:.76rem;padding:0 8px;box-shadow:0 8px 20px rgba(3,18,42,.18)}',
               s,
               count=1
           )
           s = s.replace('.section{padding:72px 0}', '.section{padding:66px 0}')
           s = s.replace('footer{padding-bottom:82px}', 'footer{padding-bottom:68px}')
+
+          # Small UX/accessibility polish, injected once.
+          polish_css = '''
+/* V68 CONVERSION POLISH */
+section[id]{scroll-margin-top:88px}
+.section-cta{text-align:center;margin-top:24px}
+.cta-note{display:block;margin-top:14px;color:rgba(255,255,255,.64);font-size:.82rem}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f0d995;outline-offset:3px}
+@media(max-width:780px){.section-cta{margin-top:18px}.section-cta .btn{width:100%;max-width:360px}.cta-note{font-size:.76rem;line-height:1.6}}
+'''
+          if '/* V68 CONVERSION POLISH */' not in s:
+              s = s.replace('</style>', polish_css + '</style>', 1)
 
           p.write_text(s, encoding='utf-8')
 
@@ -122,6 +172,10 @@ jobs:
               raise SystemExit('BURU remains in public/index.html')
           if 'BUL / LOCAL SNS' not in s:
               raise SystemExit('BUL label replacement was not applied')
+          if '3人タッグに相談する' not in s:
+              raise SystemExit('Team CTA was not added')
+          if 'なぜ、今整えるのか。' not in s:
+              raise SystemExit('WHY NOW copy polish was not applied')
           PY
 
       - name: Save V68 fixes to source
@@ -130,7 +184,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add public/index.html public/assets/buru-hero-transparent.webp
-            git commit -m "Apply V68 BUL and mobile polish [skip ci]"
+            git commit -m "Apply V68 conversion polish [skip ci]"
             git push
           fi
 
