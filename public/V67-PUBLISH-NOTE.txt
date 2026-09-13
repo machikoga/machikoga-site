@@ -1,2 +1,0 @@
-V67 final assets installed.
-Commit target: production images and final site.
