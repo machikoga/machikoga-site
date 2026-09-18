@@ -60,11 +60,11 @@ css = r'''
 s = re.sub(r'<section class="section dual-platform-section" id="dual-platform">.*?</section>', '', s, count=1, flags=re.S)
 s = re.sub(r'/\* V68 DUAL PLATFORM \*/.*?(?=</style>)', '', s, count=1, flags=re.S)
 
-# Insert immediately before the 4-service section.
-needle = '<section class="section services" id="services">'
-if needle not in s:
+# Insert immediately before the 4-service section, regardless of later visual classes.
+m = re.search(r'<section class="section services[^"]*" id="services">', s)
+if not m:
     raise SystemExit('Services section not found')
-s = s.replace(needle, section + '\n' + needle, 1)
+s = s[:m.start()] + section + '\n' + s[m.start():]
 
 # Keep CSS in the main style block so the section remains clean and responsive.
 s = s.replace('</style>', css + '\n</style>', 1)
