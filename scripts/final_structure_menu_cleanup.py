@@ -42,7 +42,7 @@ client_role = r'''
   </div>
 </div>'''
 
-m = re.search(r'(<section class="section services" id="services">.*?)(</div></section>)', s, re.S)
+m = re.search(r'(<section class="section services[^"]*" id="services">.*?)(</div></section>)', s, re.S)
 if not m:
     raise SystemExit('Services section not found for compact client role')
 services_body = m.group(1)
