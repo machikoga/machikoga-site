@@ -21,38 +21,31 @@ compare_html = '''<section class="section compare compare-compact" id="compare">
 </div>
 </div></section>'''
 
-pricing_html = '''<section class="section pricing pricing-final" id="pricing"><div class="container">
-<span class="kicker">NEW SERVICE / PRICE</span>
-<h2>新サービス開始に向けて、<br>プラン・料金を再設計中です。</h2>
-<p class="lead pricing-lead">現在、新サービス開始に向けて、より使いやすいプランを計画しています。詳細は決まり次第ご案内します。</p>
-<div class="custom-note">
-  <strong>まず「何が必要か」を一緒に整理します。</strong>
-  <span>Instagram・Google・小金井ポータル・撮影など、必要なものだけを組み合わせます。</span>
-</div>
-<div class="setup-card setup-card-final">
-  <div>
-    <span>SERVICE DESIGN</span>
+pricing_html = '''<section class="section pricing pricing-final pricing-new-plan" id="pricing"><div class="container">
+<span class="kicker">NEW KOGANEI PORTAL</span>
+<h2>小金井ポータルを、<br>大幅パワーアップします。</h2>
+<p class="lead pricing-lead">新サービスとして、小金井ポータルそのものを大きく進化させる新プランを計画中です。さらに、新しい使い方を広げる追加オプションもあわせて計画しています。</p>
+<div class="new-plan-grid">
+  <article class="new-plan-card new-plan-main">
+    <span>MAIN UPDATE</span>
     <h3>新プラン計画中</h3>
-    <p>新サービスの詳細・プランは現在計画中です。ご相談時点の最新情報をご案内します。</p>
-  </div>
-  <div class="reference-price custom-made">
-    <small>STATUS</small>
-    <strong>新プラン計画中</strong>
-    <span>最新内容は個別にご案内</span>
-  </div>
-</div>
-<div class="setup-items setup-items-final">
-  <span>Googleマップ</span><span>Instagram</span><span>小金井ポータル</span><span>カスタムAI</span><span>口コミ導線</span><span>掲載ページ制作</span><span>写真・動画・空間3D</span><span>Google連携</span>
+    <p>小金井ポータルをもっと強く、もっと使いやすく。地域で「見つかる・伝わる・選ばれる」を支えるサービスへ大幅アップデートします。</p>
+  </article>
+  <article class="new-plan-card new-plan-option">
+    <span>NEW OPTIONS</span>
+    <h3>追加オプションも計画中</h3>
+    <p>事業や目的に合わせて、必要な機能・サポートを追加できる新しい形も検討しています。詳細は決まり次第ご案内します。</p>
+  </article>
 </div>
 <div class="price-note price-note-final">
   <span>※新サービス開始予定のため、現在プラン・料金を改定しています。</span>
-  <span>※最新の内容はお問い合わせ時にご案内します。</span>
+  <span>※最新情報はお問い合わせ時にご案内します。</span>
 </div>
 <div class="section-cta"><a class="btn gold" href="#contact">新サービスについて相談する</a></div>
 </div></section>'''
 
 if 'id="compare"' in s:
-    s = re.sub(r'<section class="section compare" id="compare">.*?</section>', compare_html, s, count=1, flags=re.S)
+    s = re.sub(r'<section class="section compare[^"]*" id="compare">.*?</section>', compare_html, s, count=1, flags=re.S)
 
 if 'id="pricing"' in s:
     s = re.sub(r'<section class="section pricing[^"]*" id="pricing">.*?</section>', pricing_html, s, count=1, flags=re.S)
@@ -74,6 +67,45 @@ css = r'''
 }
 .pricing-final .reference-price.custom-made{
   min-width:220px;
+}
+.pricing-new-plan .new-plan-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:16px;
+  margin-top:26px;
+}
+.pricing-new-plan .new-plan-card{
+  min-width:0;
+  padding:24px 24px 22px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.08);
+}
+.pricing-new-plan .new-plan-card>span{
+  display:inline-flex;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(240,217,149,.13);
+  color:#f0d995;
+  font-size:.64rem;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+.pricing-new-plan .new-plan-card h3{
+  margin-top:12px;
+  color:#fff;
+  font-size:clamp(1.55rem,2.4vw,2.15rem);
+  line-height:1.18;
+}
+.pricing-new-plan .new-plan-card p{
+  margin-top:10px;
+  color:rgba(255,255,255,.76);
+  font-size:.9rem;
+  line-height:1.75;
+}
+.pricing-new-plan .new-plan-main{
+  background:linear-gradient(145deg,rgba(240,217,149,.12),rgba(255,255,255,.06));
+  border-color:rgba(240,217,149,.28);
 }
 .compare-price-accent{
   color:#f0d995!important;
@@ -136,6 +168,13 @@ css = r'''
     min-width:0;
     text-align:left!important;
   }
+  .pricing-new-plan .new-plan-grid{
+    grid-template-columns:1fr;
+  }
+  .pricing-new-plan .new-plan-card{
+    padding:20px;
+    border-radius:20px;
+  }
   .compare-compact{
     padding:48px 0!important;
   }
@@ -154,9 +193,10 @@ s = s.replace('</style>', css + '\n</style>', 1)
 p.write_text(s, encoding='utf-8')
 
 for token in [
-    '新サービス開始に向けて',
-    '新プラン準備中',
+    '小金井ポータルを、',
+    '大幅パワーアップします。',
     '新プラン計画中',
+    '追加オプションも計画中',
     'V68 NO PRICE AMOUNTS',
 ]:
     if token not in s:
