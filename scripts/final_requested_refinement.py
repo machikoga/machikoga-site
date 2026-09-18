@@ -14,7 +14,7 @@ ai_values = r'''<div class="ai-values ai-value-diagram">
   <div class="ai-value-arrow" aria-hidden="true">→</div>
   <article class="ai-value"><span class="ai-value-no">04</span><h3>思い出</h3><p>お客様との体験・記憶</p></article>
   <div class="ai-value-arrow" aria-hidden="true">→</div>
-  <article class="ai-value"><span class="ai-value-no">05</span><h3>地域とのつながり</h3><p>小金井で育てた、本物の事業資産</p></article>
+  <article class="ai-value"><span class="ai-value-no">05</span><h3>地域との<br>つながり</h3><p>小金井で育てた、本物の事業資産</p></article>
 </div>'''
 
 s = re.sub(r'<div class="ai-values[^"]*">.*?</div>\s*(?=<div class="ai-final-message">)', ai_values + '\n', s, count=1, flags=re.S)
@@ -62,15 +62,15 @@ css = r'''
   min-height:172px!important;
   padding:22px 18px 20px!important;
   border-radius:22px!important;
-  background:linear-gradient(180deg,#173f79 0%,#10315d 100%)!important;
-  border:1px solid rgba(255,255,255,.18)!important;
+  background:linear-gradient(145deg,#2b5f86 0%,#1e6e78 100%)!important;
+  border:1px solid rgba(240,217,149,.24)!important;
   color:#fff!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 14px 30px rgba(0,0,0,.08)!important;
   transform:none!important;
 }
 .ai-final .ai-value-diagram .ai-value:nth-of-type(5){
-  background:linear-gradient(180deg,#173f79 0%,#10315d 100%)!important;
-  border:1px solid rgba(255,255,255,.18)!important;
+  background:linear-gradient(145deg,#2b5f86 0%,#1e6e78 100%)!important;
+  border:1px solid rgba(240,217,149,.24)!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 14px 30px rgba(0,0,0,.08)!important;
 }
 .ai-final .ai-value-diagram .ai-value-no{
@@ -89,9 +89,16 @@ css = r'''
 .ai-final .ai-value-diagram .ai-value h3{
   margin:0!important;
   color:#fff!important;
-  font-size:clamp(1.12rem,1.55vw,1.5rem)!important;
+  font-size:clamp(1.05rem,1.38vw,1.38rem)!important;
   line-height:1.28!important;
-  letter-spacing:-.025em!important;
+  letter-spacing:-.02em!important;
+  white-space:normal!important;
+  word-break:keep-all!important;
+  overflow-wrap:anywhere!important;
+}
+.ai-final .ai-value-diagram .ai-value:nth-of-type(5) h3{
+  font-size:clamp(.98rem,1.2vw,1.2rem)!important;
+  line-height:1.26!important;
 }
 .ai-final .ai-value-diagram .ai-value p{
   margin-top:9px!important;
