@@ -1758,6 +1758,68 @@ body.menu-open{overflow:hidden}
   }
 }
 
+
+/* V68 RESULTS FEATURED CASES */
+.results-featured{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-top:30px;
+}
+.results-featured .result-impact{
+  position:relative;
+  overflow:hidden;
+  min-width:0;
+  padding:24px 20px 22px!important;
+  border:1px solid rgba(199,162,83,.34)!important;
+  background:linear-gradient(145deg,#071d3f 0%,#0a4564 100%)!important;
+  color:#fff!important;
+  box-shadow:0 18px 42px rgba(5,25,57,.14)!important;
+}
+.results-featured .result-impact:before{
+  content:"PICK UP";
+  position:absolute;
+  top:14px;
+  right:14px;
+  color:#f0d995;
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.results-featured .result-type{
+  background:#f0d995!important;
+  color:#071d3f!important;
+}
+.results-featured .result-impact small{
+  color:rgba(255,255,255,.68)!important;
+}
+.results-featured .result-impact>strong{
+  color:#fff!important;
+  font-size:clamp(1.35rem,2vw,1.9rem)!important;
+  line-height:1.24!important;
+}
+.results-featured .result-impact p{
+  color:rgba(255,255,255,.76)!important;
+}
+.results-highlight{
+  margin-top:18px!important;
+}
+@media(max-width:980px){
+  .results-featured{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:780px){
+  .results-featured{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-top:24px;
+  }
+  .results-featured .result-impact{
+    padding:21px 19px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1772,6 +1834,9 @@ body.menu-open{overflow:hidden}
   <a href="#pricing"><span>05</span><b>料金</b></a>
   <a class="mobile-menu-cta" href="#contact"><b>無料相談する</b><i>→</i></a>
 </aside>
+
+
+
 
 
 
@@ -1856,6 +1921,7 @@ body.menu-open{overflow:hidden}
 
 
 
+
 <section class="section dual-platform-section" id="dual-platform"><div class="container dual-platform-inner">
   <div class="dual-platform-kicker">INSTAGRAM × GOOGLE</div>
   <div class="dual-platform-head">
@@ -1903,6 +1969,7 @@ body.menu-open{overflow:hidden}
 
 
 
+
 <div class="client-role-strip">
   <div class="client-role-copy">
     <span>YOUR PART</span>
@@ -1922,14 +1989,58 @@ body.menu-open{overflow:hidden}
 <article class="trio-person compact-person yokota"><div class="trio-photo"><img src="assets/partners/yokota.webp" alt="横田淳"></div><div class="trio-role">DRONE / VISUAL</div><h3>横田淳</h3><strong>ドローン映像の第一人者</strong><div class="authority-mini authority-yokota"><span>ドローン日本の第一人者</span><span>世界大会</span><span>万博</span><span>Coca-Cola</span><span>HONDA</span><span>BMW</span><span>NTTデータ</span><span>自治体連携</span></div><a class="trio-cta" href="#samples">動画事例を見る →</a></article>
 </div></div></section>
 
-<section class="section results machikoga-results" id="results"><div class="container"><span class="kicker">MACHIKOGA RESULTS</span><h2>小金井で、<br>成果が出ています。</h2><p class="lead results-lead">集客だけではありません。<strong>新規来店・採用・認知・Google・アカウント立ち上げまで。</strong>集客・採用・認知・Googleまで。実際に一緒に取り組んだ成果の一部です。</p><div class="results-highlight">
-<article class="result-impact"><span class="result-type">飲食店</span><small>集客コンサル</small><strong>2ヶ月で<br>ランチ客数120%</strong></article>
-<article class="result-impact"><span class="result-type">求人</span><small>アルバイト募集投稿</small><strong>投稿後1日で<br>6名応募</strong><p>採用決定</p></article>
-<article class="result-impact"><span class="result-type">整体院</span><small>店舗アピール投稿</small><strong>翌日<br>新規顧客5名</strong><p>保存10</p></article>
-<article class="result-impact"><span class="result-type">カフェ</span><small>新規アカウント立ち上げ</small><strong>3ヶ月で<br><span class="result-long-line">小金井フォロワー</span><br><span class="result-big-number">300人</span></strong><p>1日1組「Instagramを見た」で新規来店</p></article>
-<article class="result-impact"><span class="result-type">ドローン</span><small>Google閲覧数</small><strong>1週間で<br>過去の閲覧数を突破</strong><p>閲覧数トップへ</p></article>
-<article class="result-impact"><span class="result-type">看護師採用</span><small>訪問ナース紹介</small><strong>看護師<br>2名採用</strong></article>
-</div><details class="results-more"><summary>その他の成果を見る ＋</summary><div class="results-list"><div class="result-row"><b>美容室</b><span>店舗アピール投稿</span><strong>周年イベント翌日 新規来客4名</strong></div><div class="result-row"><b>スポーツスクール</b><span>会員募集</span><strong>翌日 新規体験4名・保存11</strong></div><div class="result-row"><b>ラーメン店</b><span>特集記事掲載</span><strong>混雑が続出するほど反響</strong></div><div class="result-row"><b>小金井ゆるっと会</b><span>地域交流イベント</span><strong>定期開催へ。地域コミュニティ形成</strong></div><div class="result-row"><b>ハウスクリーニング</b><span>新規アカウント立ち上げ</span><strong>3ヶ月で多摩エリアフォロワー700人</strong></div><div class="result-row"><b>バンド</b><span>新規アカウント立ち上げ</span><strong>初期設計から東京都・大阪へ認知拡大</strong></div></div></details><p class="results-note">※成果事例は一部抜粋です。数値・実績は2026年8月時点を含みます。</p></div></section>
+<section class="section results machikoga-results" id="results"><div class="container">
+  <span class="kicker">MACHIKOGA RESULTS</span>
+  <h2>小金井で、<br>成果が出ています。</h2>
+  <p class="lead results-lead">集客だけではありません。<strong>新規来店・採用・認知・Google・アカウント立ち上げまで。</strong> 実際に一緒に取り組んだ成果の一部です。</p>
+
+  <div class="results-featured">
+    <article class="result-impact result-featured">
+      <span class="result-type">うどん店</span>
+      <small>アルバイト採用</small>
+      <strong>1ヶ月で<br>アルバイト3名採用</strong>
+      <p>採用までつながった求人事例</p>
+    </article>
+    <article class="result-impact result-featured">
+      <span class="result-type">美容室</span>
+      <small>店舗アピール投稿</small>
+      <strong>周年イベント翌日<br>新規来客4名</strong>
+      <p>投稿から来店へ</p>
+    </article>
+    <article class="result-impact result-featured">
+      <span class="result-type">小金井ゆるっと会</span>
+      <small>地域交流イベント</small>
+      <strong>定期開催へ</strong>
+      <p>地域コミュニティ形成</p>
+    </article>
+    <article class="result-impact result-featured">
+      <span class="result-type">ハウスクリーニング</span>
+      <small>新規アカウント立ち上げ</small>
+      <strong>3ヶ月で<br>多摩エリア700人</strong>
+      <p>地域フォロワーを獲得</p>
+    </article>
+  </div>
+
+  <div class="results-highlight">
+    <article class="result-impact"><span class="result-type">飲食店</span><small>集客コンサル</small><strong>2ヶ月で<br>ランチ客数120%</strong></article>
+    <article class="result-impact"><span class="result-type">求人</span><small>アルバイト募集投稿</small><strong>投稿後1日で<br>6名応募</strong><p>採用決定</p></article>
+    <article class="result-impact"><span class="result-type">整体院</span><small>店舗アピール投稿</small><strong>翌日<br>新規顧客5名</strong><p>保存10</p></article>
+    <article class="result-impact"><span class="result-type">カフェ</span><small>新規アカウント立ち上げ</small><strong>3ヶ月で<br><span class="result-long-line">小金井フォロワー</span><br><span class="result-big-number">300人</span></strong><p>1日1組「Instagramを見た」で新規来店</p></article>
+    <article class="result-impact"><span class="result-type">ドローン</span><small>Google閲覧数</small><strong>1週間で<br>過去の閲覧数を突破</strong><p>閲覧数トップへ</p></article>
+    <article class="result-impact"><span class="result-type">看護師採用</span><small>訪問ナース紹介</small><strong>看護師<br>2名採用</strong></article>
+  </div>
+
+  <details class="results-more">
+    <summary>その他の成果を見る ＋</summary>
+    <div class="results-list">
+      <div class="result-row"><b>スポーツスクール</b><span>会員募集</span><strong>翌日 新規体験4名・保存11</strong></div>
+      <div class="result-row"><b>ラーメン店</b><span>特集記事掲載</span><strong>混雑が続出するほど反響</strong></div>
+      <div class="result-row"><b>バンド</b><span>新規アカウント立ち上げ</span><strong>初期設計から東京都・大阪へ認知拡大</strong></div>
+    </div>
+  </details>
+
+  <p class="results-note">※成果事例は一部抜粋です。数値・実績は2026年8月時点を含みます。</p>
+</div></section>
 <section class="section samples" id="samples"><div class="container"><span class="kicker">DRONE & VIDEO SAMPLES</span><h2>見せ方も、事業の武器になる。</h2><div class="sample-grid"><article class="video-card"><video controls playsinline preload="metadata" poster="posters/rokko-v47.jpg"><source src="videos/rokko-v47.mp4" type="video/mp4"></video><div class="video-body"><h3>六甲山</h3><p>景観と空気感を印象的に。</p></div></article><article class="video-card"><video controls playsinline preload="metadata" poster="posters/kamokyu-v47.jpg"><source src="videos/kamokyu-v47.mp4" type="video/mp4"></video><div class="video-body"><h3>かもkyu</h3><p>料理とお店の個性をテンポよく。</p></div></article><article class="video-card"><video controls playsinline preload="metadata" poster="posters/nijiiro-v47.jpg"><source src="videos/nijiiro-v47.mp4" type="video/mp4"></video><div class="video-body"><h3>にじいろ薬局</h3><p>安心感とやわらかさを表現。</p></div></article><article class="video-card"><video controls playsinline preload="metadata" poster="posters/cercle-v47.jpg"><source src="videos/cercle-v47.mp4" type="video/mp4"></video><div class="video-body"><h3>cercle</h3><p>空間の居心地を映像で。</p></div></article></div><details class="more"><summary>その他の撮影事例を見る ＋</summary><div class="more-grid"><article class="video-card"><video controls playsinline preload="metadata" poster="posters/sukkiri-v50.jpg"><source src="videos/sukkiri-v50.mp4" type="video/mp4"></video><div class="video-body"><h3>スッキリ</h3></div></article><article class="video-card"><video controls playsinline preload="metadata" poster="posters/massugu-v50.jpg"><source src="videos/massugu-v50.mp4" type="video/mp4"></video><div class="video-body"><h3>まっすぐ整体</h3></div></article><article class="video-card"><video controls playsinline preload="metadata" poster="posters/zendokai-v50.jpg"><source src="videos/zendokai-v50.mp4" type="video/mp4"></video><div class="video-body"><h3>禅道会空手</h3></div></article><article class="video-card"><video controls playsinline preload="metadata" poster="posters/tekkaba-v50.jpg"><source src="videos/tekkaba-v50.mp4" type="video/mp4"></video><div class="video-body"><h3>てっかば</h3></div></article><article class="video-card"><video controls playsinline preload="metadata" poster="posters/agreco-v50.jpg"><source src="videos/agreco-v50.mp4" type="video/mp4"></video><div class="video-body"><h3>アグレコ</h3></div></article></div></details></div></section>
 
 
@@ -1982,6 +2093,9 @@ body.menu-open{overflow:hidden}
 const heroVideos=[{src:'videos/rokko-v47.mp4',poster:'posters/rokko-v47.jpg'},{src:'videos/kamokyu-v47.mp4',poster:'posters/kamokyu-v47.jpg'},{src:'videos/nijiiro-v47.mp4',poster:'posters/nijiiro-v47.jpg'},{src:'videos/cercle-v47.mp4',poster:'posters/cercle-v47.jpg'},{src:'videos/sukkiri-v50.mp4',poster:'posters/sukkiri-v50.jpg'},{src:'videos/massugu-v50.mp4',poster:'posters/massugu-v50.jpg'},{src:'videos/zendokai-v50.mp4',poster:'posters/zendokai-v50.jpg'},{src:'videos/tekkaba-v50.mp4',poster:'posters/tekkaba-v50.jpg'},{src:'videos/agreco-v50.mp4',poster:'posters/agreco-v50.jpg'}];
 function shuffle(list){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}const playlist=shuffle(heroVideos);const root=document.getElementById('heroSlides');if(root){const v=document.createElement('video');v.muted=true;v.autoplay=true;v.playsInline=true;v.preload='auto';v.setAttribute('muted','');v.setAttribute('autoplay','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');root.appendChild(v);let p=0;const play=()=>{const item=playlist[p%playlist.length];v.poster=item.poster;v.src=item.src;v.load();v.play().catch(()=>{});};v.addEventListener('ended',()=>{p=(p+1)%playlist.length;play();});v.addEventListener('error',()=>{p=(p+1)%playlist.length;setTimeout(play,180);});play();const resume=()=>v.play().catch(()=>{});document.addEventListener('touchstart',resume,{once:true,passive:true});document.addEventListener('click',resume,{once:true});}
 </script>
+
+
+
 
 
 
