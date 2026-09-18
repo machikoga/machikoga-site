@@ -72,6 +72,9 @@ jobs:
       - name: Visualize service pillars
         run: python3 scripts/visualize_service_pillars.py
 
+      - name: Apply final requested refinements
+        run: python3 scripts/final_requested_refinement.py
+
       - name: Build downloadable V68 backup
         run: |
           mkdir -p exports
@@ -87,7 +90,7 @@ jobs:
           git add public/index.html public/assets/buru-hero-navy.webp || true
           git add -f exports/machikoga_V68_complete_2026-09-10.zip
           if ! git diff --cached --quiet; then
-            git commit -m "Visualize service pillars and refresh backup [skip ci]"
+            git commit -m "Apply final AI results and all-in-one refinements [skip ci]"
             git push
           fi
 
