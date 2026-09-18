@@ -2387,6 +2387,9 @@ body.menu-open{overflow:hidden}
 
 
 
+
+
+
 <main>
 <section class="hero" id="top"><div class="hero-media" id="heroSlides"></div><div class="hero-overlay"></div><div class="hero-grid"></div><div class="container hero-in"><div class="hero-copy"><div class="hero-motto">小金井をオモロく。</div><span class="kicker">KOGANEI LOCAL BRANDING</span><h1><span class="hero-line">小金井で<em>強くなる。</em></span><span class="hero-line">小金井を<em>強くする。</em></span></h1><p class="lead">SNSをもっと頑張るのではなく、<strong>今ある発信を、小金井で強くする。</strong><br>Instagram × Google × 地域をつなぎ、自分たちに残る集客資産を育てます。</p><div class="hero-actions"><a class="btn gold" href="#contact">無料で相談する</a><a class="btn white" href="#samples">実績・事例を見る</a></div><div class="hero-pr"><div class="pr-card one"><div class="label">PR POINT 01</div><strong>自前の情報インフラを育てる。</strong><span>Instagram・Google・地域導線をつなぐ</span></div><div class="pr-card two"><div class="label">PR POINT 02</div><strong>今の発信を、小金井で数倍強くする。</strong><span>新しい努力より、今の努力の価値を上げる</span></div></div></div><aside class="hero-side"><img class="hero-buru" src="assets/buru-hero-navy.webp?v=20260910-final" alt="まちこが ぶる"><div class="hero-bubble"><p class="hero-bubble-main">頑張る量を増やすのではなく、<br><span>今の発信の価値を上げる。</span></p><p class="hero-bubble-sub">小金井で見つかり、選ばれる仕組みを一緒につくります。</p></div></aside></div></section>
 <div class="proof-wrap"><div class="container"><div class="proof">
@@ -2456,6 +2459,7 @@ body.menu-open{overflow:hidden}
 <article class="core-card one core-primary"><span class="core-label">PR POINT 01</span><h3>小金井で強い、<br><span class="core-emphasis core-emphasis-one">自前の情報インフラ。</span></h3><p>Instagram・Googleマップ・小金井ポータル・ぶる・動画をバラバラにせず、<strong>自分たちで発信し、見つけてもらい、また来てもらえる土台</strong>としてつなぎます。</p><div class="asset-note"><b>積み上げるほど、御社に残る。</b><span>集客・採用・イベント・新商品。自分のメディアを持てば、いつでも発信できます。</span></div></article>
 <article class="core-card two"><span class="core-label">PR POINT 02</span><h3>同じ1回の発信を、<br><span class="core-emphasis core-emphasis-two">小金井で数倍強くする。</span></h3><p>1つずつ別々に投稿するのではなく、情報の行き先をつなげて接点を増やします。</p><div class="one-post"><strong>1回の発信</strong><div class="branches"><div class="branch">Instagram</div><div class="branch">Google</div><div class="branch">小金井ポータル</div><div class="branch">地域メディア</div></div></div><div class="bigline">頑張る量ではなく、1回の価値を上げる。</div></article>
 </div></div></section>
+
 
 
 
@@ -2685,39 +2689,75 @@ body.menu-open{overflow:hidden}
 <footer><div class="container foot"><span>まちこが｜小金井をオモロくする</span><span>© 2026 machikoga</span></div></footer>
 <div class="mobile-dock"><a class="btn line" href="https://lin.ee/XkEC3Il" target="_blank" rel="noopener">LINEで相談</a><a class="btn white" href="https://www.instagram.com/machikoga/" target="_blank" rel="noopener">Instagram</a></div>
 <script>
-const heroItem={src:'videos/massugu-v50.mp4',poster:'posters/massugu-v50.jpg'};
+const heroVideos=[
+  {src:'videos/rokko-v47.mp4',poster:'posters/rokko-v47.jpg'},
+  {src:'videos/kamokyu-v47.mp4',poster:'posters/kamokyu-v47.jpg'},
+  {src:'videos/nijiiro-v47.mp4',poster:'posters/nijiiro-v47.jpg'},
+  {src:'videos/cercle-v47.mp4',poster:'posters/cercle-v47.jpg'},
+  {src:'videos/sukkiri-v50.mp4',poster:'posters/sukkiri-v50.jpg'},
+  {src:'videos/massugu-v50.mp4',poster:'posters/massugu-v50.jpg'},
+  {src:'videos/zendokai-v50.mp4',poster:'posters/zendokai-v50.jpg'},
+  {src:'videos/tekkaba-v50.mp4',poster:'posters/tekkaba-v50.jpg'},
+  {src:'videos/agreco-v50.mp4',poster:'posters/agreco-v50.jpg'}
+];
+function shuffle(list){
+  const a=[...list];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+const playlist=shuffle(heroVideos);
 const root=document.getElementById('heroSlides');
 if(root){
-  root.style.backgroundImage="url('"+heroItem.poster+"')";
+  const first=playlist[0];
+  root.style.backgroundImage="url('"+first.poster+"')";
   root.style.backgroundSize='cover';
   root.style.backgroundPosition='center';
   root.style.backgroundRepeat='no-repeat';
 
-  const conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
-  const saveData=!!(conn&&conn.saveData);
-  const slow=!!(conn&&/^(slow-2g|2g)$/.test(conn.effectiveType||''));
-  const mobile=window.matchMedia('(max-width: 780px)').matches;
+  const v=document.createElement('video');
+  v.muted=true;
+  v.autoplay=true;
+  v.playsInline=true;
+  v.preload='metadata';
+  v.setAttribute('muted','');
+  v.setAttribute('autoplay','');
+  v.setAttribute('playsinline','');
+  v.setAttribute('webkit-playsinline','');
+  root.appendChild(v);
 
-  if(!mobile&&!saveData&&!slow){
-    const v=document.createElement('video');
-    v.muted=true;
-    v.autoplay=true;
-    v.loop=true;
-    v.playsInline=true;
-    v.preload='metadata';
-    v.poster=heroItem.poster;
-    v.src=heroItem.src;
-    v.setAttribute('muted','');
-    v.setAttribute('autoplay','');
-    v.setAttribute('loop','');
-    v.setAttribute('playsinline','');
-    v.setAttribute('webkit-playsinline','');
-    root.appendChild(v);
+  let p=0;
+  const play=()=>{
+    const item=playlist[p%playlist.length];
+    root.style.backgroundImage="url('"+item.poster+"')";
+    v.poster=item.poster;
+    v.src=item.src;
+    v.load();
     v.play().catch(()=>{});
-  }
+  };
+
+  v.addEventListener('ended',()=>{
+    p=(p+1)%playlist.length;
+    play();
+  });
+  v.addEventListener('error',()=>{
+    p=(p+1)%playlist.length;
+    setTimeout(play,180);
+  });
+
+  const resume=()=>v.play().catch(()=>{});
+  document.addEventListener('touchstart',resume,{once:true,passive:true});
+  document.addEventListener('click',resume,{once:true});
+
+  play();
 }
 
 </script>
+
+
+
 
 
 
