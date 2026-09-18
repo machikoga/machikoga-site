@@ -4,41 +4,27 @@ import re
 p = Path('public/index.html')
 s = p.read_text(encoding='utf-8')
 
-compare_html = '''<section class="section compare" id="compare"><div class="container">
+compare_html = '''<section class="section compare compare-compact" id="compare"><div class="container">
 <span class="kicker">ALL-IN-ONE DESIGN</span>
-<h2>別々に頼むより、<br>ひとつにつなぐ。</h2>
-<p class="lead compare-lead">SNS・Googleマップ・WEB・撮影を別々に管理するのではなく、小金井で必要な導線をひとつの設計にまとめます。</p>
-<div class="compare-grid">
-  <article class="compare-card compare-market">
-    <span class="compare-label">一般的な別発注</span>
-    <h3>施策ごとに分けると、<br>窓口も管理も増えやすい。</h3>
-    <div class="market-prices">
-      <div><b>SNS運用</b><span>別契約・別担当</span></div>
-      <div><b>Google / MEO</b><span>別契約・別担当</span></div>
-      <div><b>WEB</b><span>別制作・別管理</span></div>
-      <div><b>写真・動画</b><span>必要時に別手配</span></div>
-    </div>
-    <p>それぞれを個別に頼むと、情報や方針が分かれ、更新や管理の手間も増えやすくなります。</p>
-  </article>
-  <article class="compare-card compare-machikoga">
-    <span class="compare-label">まちこが｜ALL IN ONE</span>
-    <h3>必要な土台をまとめて、<br><span class="compare-price-accent">小金井で使える形に。</span></h3>
-    <div class="compare-points">
-      <div><b>一括設計</b><span>Instagram × Google × 小金井ポータル</span></div>
-      <div><b>必要な分だけ</b><span>今の状況に合わせて組み立てます</span></div>
-      <div><b>地域を知る伴走者</b><span>小金井を知るぶるが一緒に進めます</span></div>
-    </div>
-    <strong class="compare-main-copy">安さだけではなく、<br>小金井で使える仕組みを一緒につくる。</strong>
-    <p class="compare-subcopy">新サービス開始に向けて、提供内容・プランを再設計しています。</p>
-  </article>
+<h2>必要な発信を、<br>ひとつにつなぐ。</h2>
+<p class="lead compare-lead">SNS・Google・WEB・撮影をバラバラにせず、小金井で使えるひとつの導線として設計します。</p>
+<div class="compare-compact-row">
+  <div class="compare-mini compare-mini-market">
+    <span>一般的な別発注</span>
+    <strong>SNS / Google / WEB / 撮影が分散</strong>
+  </div>
+  <div class="compare-arrow">→</div>
+  <div class="compare-mini compare-mini-machikoga">
+    <span>まちこが</span>
+    <strong>必要な施策を、ひとつの窓口で。</strong>
+  </div>
 </div>
-<div class="compare-summary"><span>一般的な別発注</span><b>複数社・複数窓口</b><i>→</i><span>まちこが</span><strong>必要な施策を、ひとつの窓口で。</strong></div>
 </div></section>'''
 
 pricing_html = '''<section class="section pricing pricing-final" id="pricing"><div class="container">
 <span class="kicker">NEW SERVICE / PRICE</span>
 <h2>新サービス開始に向けて、<br>プラン・料金を再設計中です。</h2>
-<p class="lead pricing-lead">現在、より使いやすいサービス構成へ見直しを進めています。必要な施策・撮影範囲・更新頻度・運用サポートに合わせて、内容を個別にご提案します。</p>
+<p class="lead pricing-lead">現在、新サービス開始に向けて、より使いやすいプランを計画しています。詳細は決まり次第ご案内します。</p>
 <div class="custom-note">
   <strong>まず「何が必要か」を一緒に整理します。</strong>
   <span>Instagram・Google・小金井ポータル・撮影など、必要なものだけを組み合わせます。</span>
@@ -46,12 +32,12 @@ pricing_html = '''<section class="section pricing pricing-final" id="pricing"><d
 <div class="setup-card setup-card-final">
   <div>
     <span>SERVICE DESIGN</span>
-    <h3>内容はオーダーメイド</h3>
-    <p>新サービスの詳細・プランは順次ご案内します。ご相談時点の最新内容でご提案します。</p>
+    <h3>新プラン計画中</h3>
+    <p>新サービスの詳細・プランは現在計画中です。ご相談時点の最新情報をご案内します。</p>
   </div>
   <div class="reference-price custom-made">
     <small>STATUS</small>
-    <strong>新プラン準備中</strong>
+    <strong>新プラン計画中</strong>
     <span>最新内容は個別にご案内</span>
   </div>
 </div>
@@ -92,10 +78,73 @@ css = r'''
 .compare-price-accent{
   color:#f0d995!important;
 }
+.compare-compact{
+  padding:58px 0!important;
+  background:linear-gradient(180deg,#fff,#f5f7fa)!important;
+}
+.compare-compact h2{
+  max-width:9em!important;
+  margin-top:10px!important;
+  font-size:clamp(2.25rem,4vw,3.8rem)!important;
+}
+.compare-compact .compare-lead{
+  max-width:760px!important;
+  margin-top:14px!important;
+}
+.compare-compact-row{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr)!important;
+  gap:12px!important;
+  align-items:center!important;
+  margin-top:24px!important;
+}
+.compare-mini{
+  min-width:0!important;
+  padding:18px 20px!important;
+  border-radius:20px!important;
+  border:1px solid var(--line)!important;
+  background:#fff!important;
+}
+.compare-mini span{
+  display:block!important;
+  margin-bottom:6px!important;
+  color:#758197!important;
+  font-size:.68rem!important;
+  font-weight:900!important;
+  letter-spacing:.06em!important;
+}
+.compare-mini strong{
+  display:block!important;
+  color:var(--navy)!important;
+  font-size:1rem!important;
+  line-height:1.55!important;
+}
+.compare-mini-machikoga{
+  background:linear-gradient(135deg,#071d3f,#0a5a67)!important;
+  border-color:rgba(240,217,149,.28)!important;
+}
+.compare-mini-machikoga span{color:#f0d995!important}
+.compare-mini-machikoga strong{color:#fff!important}
+.compare-arrow{
+  text-align:center!important;
+  color:#0c8b86!important;
+  font-size:1.35rem!important;
+  font-weight:900!important;
+}
 @media(max-width:780px){
   .pricing-final .reference-price.custom-made{
     min-width:0;
     text-align:left!important;
+  }
+  .compare-compact{
+    padding:48px 0!important;
+  }
+  .compare-compact-row{
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+  .compare-arrow{
+    transform:rotate(90deg)!important;
   }
 }
 '''
@@ -107,7 +156,7 @@ p.write_text(s, encoding='utf-8')
 for token in [
     '新サービス開始に向けて',
     '新プラン準備中',
-    '内容はオーダーメイド',
+    '新プラン計画中',
     'V68 NO PRICE AMOUNTS',
 ]:
     if token not in s:
