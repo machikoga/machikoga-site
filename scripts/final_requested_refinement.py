@@ -5,7 +5,8 @@ p = Path('public/index.html')
 s = p.read_text(encoding='utf-8')
 
 # 1) AI: make all five values equal and show them as one visual flow.
-ai_values = r'''<div class="ai-values ai-value-diagram">
+ai_values = r'''<div class="ai-values-bridge"><span>この5つが</span><strong>「地域で積み上げた5つの価値」</strong><b>01 → 02 → 03 → 04 → 05</b></div>
+<div class="ai-values ai-value-diagram">
   <article class="ai-value"><span class="ai-value-no">01</span><h3>土地</h3><p>その場所で商売してきた事実</p></article>
   <div class="ai-value-arrow" aria-hidden="true">→</div>
   <article class="ai-value"><span class="ai-value-no">02</span><h3>歴史</h3><p>店・会社が歩んできた背景</p></article>
@@ -50,6 +51,67 @@ css = r'''
 /* V68 USER REQUESTED FINAL REFINEMENT */
 
 /* AI five values: equal importance, one continuous visual story */
+.ai-final .ai-cannot{
+  position:relative!important;
+  background:linear-gradient(145deg,#2b5f86 0%,#1e6e78 100%)!important;
+  border:1px solid rgba(240,217,149,.30)!important;
+  color:#fff!important;
+  box-shadow:0 16px 34px rgba(0,0,0,.12)!important;
+}
+.ai-final .ai-cannot .ai-contrast-label{
+  color:#f0d995!important;
+}
+.ai-final .ai-cannot strong,
+.ai-final .ai-cannot small{
+  color:#fff!important;
+}
+.ai-final .ai-cannot small{
+  opacity:.72!important;
+}
+.ai-final .ai-cannot:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-34px;
+  width:2px;
+  height:34px;
+  transform:translateX(-50%);
+  background:linear-gradient(#f0d995,rgba(240,217,149,.25));
+}
+.ai-final .ai-values-bridge{
+  position:relative;
+  z-index:2;
+  width:max-content;
+  max-width:calc(100% - 32px);
+  margin:32px auto -6px;
+  padding:10px 16px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  flex-wrap:wrap;
+  background:linear-gradient(145deg,#2b5f86 0%,#1e6e78 100%);
+  border:1px solid rgba(240,217,149,.30);
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+  color:#fff;
+}
+.ai-final .ai-values-bridge span{
+  color:#f0d995;
+  font-size:.66rem;
+  font-weight:950;
+  letter-spacing:.08em;
+}
+.ai-final .ai-values-bridge strong{
+  color:#fff;
+  font-size:.88rem;
+  line-height:1.35;
+}
+.ai-final .ai-values-bridge b{
+  color:#f0d995;
+  font-size:.72rem;
+  letter-spacing:.05em;
+}
 .ai-final .ai-value-diagram{
   display:grid!important;
   grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr)!important;
@@ -231,6 +293,20 @@ css = r'''
 }
 
 @media(max-width:1050px){
+  .ai-final .ai-cannot:after{
+    height:24px;
+    bottom:-24px;
+  }
+  .ai-final .ai-values-bridge{
+    width:auto;
+    margin:24px 12px -2px;
+    border-radius:18px;
+    padding:11px 13px;
+  }
+  .ai-final .ai-values-bridge b{
+    width:100%;
+    text-align:center;
+  }
   .ai-final .ai-value-diagram{
     grid-template-columns:1fr!important;
     gap:8px!important;
@@ -280,6 +356,7 @@ s = s.replace('</style>', css + '\n</style>', 1)
 p.write_text(s, encoding='utf-8')
 
 for token in [
+    'ai-values-bridge',
     'ai-value-diagram',
     'ALL-IN-ONE SUPPORT',
     'あちこちに頼まなくていい。',
