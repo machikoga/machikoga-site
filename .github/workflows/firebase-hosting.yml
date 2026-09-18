@@ -66,6 +66,9 @@ jobs:
       - name: Remove public price amounts
         run: python3 scripts/remove_price_amounts.py
 
+      - name: Promote success cases
+        run: python3 scripts/promote_success_cases.py
+
       - name: Build downloadable V68 backup
         run: |
           mkdir -p exports
@@ -81,7 +84,7 @@ jobs:
           git add public/index.html public/assets/buru-hero-navy.webp || true
           git add -f exports/machikoga_V68_complete_2026-09-10.zip
           if ! git diff --cached --quiet; then
-            git commit -m "Remove public price amounts for service revision [skip ci]"
+            git commit -m "Promote success cases and refresh backup [skip ci]"
             git push
           fi
 
