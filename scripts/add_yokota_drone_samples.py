@@ -4,155 +4,158 @@ import re
 p = Path('public/index.html')
 s = p.read_text(encoding='utf-8')
 
-# Remove prior injected block if present so the script is idempotent.
+# Remove any previously injected external drone sample block.
 s = re.sub(r'\s*<div class="yokota-drone-feature">.*?</div>\s*(?=<div class="sample-grid">)', '\n', s, count=1, flags=re.S)
+s = re.sub(r'\s*<div class="external-drone-samples">.*?</div>\s*(?=</div></section>)', '\n', s, count=1, flags=re.S)
 
 feature = r'''
-<div class="yokota-drone-feature">
-  <div class="yokota-drone-head">
-    <span>DRONE SHOOTING SAMPLES</span>
-    <h3>ドローン撮影サンプル</h3>
-    <p>屋内マイクロドローンから地域プロモーションまで、実際の撮影サンプルをご覧ください。</p>
+<div class="external-drone-samples">
+  <div class="external-drone-head">
+    <span>OTHER DRONE SAMPLES</span>
+    <h3>営業でご紹介している撮影サンプル</h3>
+    <p>以下2本は小金井以外で撮影したドローン映像です。小金井の撮影事例とは分けて、一覧の最後に掲載しています。</p>
   </div>
-  <div class="yokota-drone-grid">
-    <article class="video-card yokota-video-card">
-      <div class="yokota-video-badge">横田淳氏 撮影</div>
+  <div class="external-drone-grid">
+    <article class="video-card external-drone-card">
       <video controls playsinline preload="none" poster="posters/yokota-indoor-drone-sample.jpg">
         <source src="videos/yokota-indoor-drone-sample.mp4" type="video/mp4">
       </video>
       <div class="video-body">
         <h3>屋内マイクロドローン撮影</h3>
-        <p>屋内を立体的に抜ける、臨場感のあるドローン映像。</p>
+        <p>空間の中を滑らかに巡る、臨場感のある撮影サンプル。</p>
       </div>
     </article>
-    <article class="video-card yokota-video-card">
-      <div class="yokota-video-badge">横田淳氏 撮影</div>
+    <article class="video-card external-drone-card">
       <video controls playsinline preload="none" poster="posters/yokota-higashimurayama-drone-sample.jpg">
         <source src="videos/yokota-higashimurayama-drone-sample.mp4" type="video/mp4">
       </video>
       <div class="video-body">
         <h3>東村山｜企業版ふるさと納税 映像企画</h3>
-        <p>地域の魅力を空から伝えるプロモーション映像。</p>
+        <p>地域の魅力を映像で伝える、ドローンを活用したプロモーションサンプル。</p>
       </div>
     </article>
   </div>
 </div>
 '''
 
-needle = '<div class="sample-grid">'
-if needle not in s:
-    raise SystemExit('sample-grid not found')
-s = s.replace(needle, feature + '\n' + needle, 1)
+# Append the two non-Koganei samples to the very bottom of the DRONE & VIDEO SAMPLES section.
+m = re.search(r'(<section class="section samples" id="samples">.*?)(</div></section>)', s, flags=re.S)
+if not m:
+    raise SystemExit('samples section not found')
+section = m.group(1)
+section = re.sub(r'\s*<div class="external-drone-samples">.*$', '', section, flags=re.S)
+replacement = section + feature + m.group(2)
+s = s[:m.start()] + replacement + s[m.end():]
 
 css = r'''
-/* V68 YOKOTA DRONE FEATURE */
-.yokota-drone-feature{
+/* V68 EXTERNAL DRONE SAMPLES */
+.external-drone-samples{
   margin-top:28px;
-  padding:24px;
-  border-radius:26px;
+  padding:22px;
+  border-radius:24px;
   background:linear-gradient(145deg,#061a38 0%,#0b3855 100%);
-  border:1px solid rgba(199,162,83,.34);
-  box-shadow:0 20px 46px rgba(5,25,57,.12);
+  border:1px solid rgba(199,162,83,.30);
+  box-shadow:0 18px 40px rgba(5,25,57,.10);
 }
-.yokota-drone-head{
+.external-drone-head{
   display:grid;
-  grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
+  grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
   gap:8px 24px;
   align-items:end;
-  margin-bottom:18px;
+  margin-bottom:16px;
 }
-.yokota-drone-head>span{
+.external-drone-head>span{
   grid-column:1/-1;
   color:#f0d995;
-  font-size:.66rem;
+  font-size:.64rem;
   font-weight:950;
   letter-spacing:.14em;
 }
-.yokota-drone-head h3{
+.external-drone-head h3{
   margin:0;
   color:#fff;
-  font-size:clamp(1.55rem,2.5vw,2.3rem);
-  line-height:1.16;
-  letter-spacing:-.035em;
+  font-size:clamp(1.35rem,2.2vw,2rem);
+  line-height:1.18;
+  letter-spacing:-.03em;
 }
-.yokota-drone-head p{
+.external-drone-head p{
   margin:0;
   color:rgba(255,255,255,.72);
-  font-size:.84rem;
-  line-height:1.75;
+  font-size:.8rem;
+  line-height:1.7;
 }
-.yokota-drone-grid{
+.external-drone-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:14px;
 }
-.yokota-video-card{
+.external-drone-card{
   position:relative;
   overflow:hidden;
   background:#fff;
   border:0!important;
 }
-.yokota-video-card video{
+.external-drone-card video{
   display:block;
   width:100%;
   aspect-ratio:16/9;
-  object-fit:cover;
-  background:#061a38;
+  object-fit:contain;
+  background:#020b18;
 }
-.yokota-video-badge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  z-index:2;
-  padding:7px 10px;
-  border-radius:999px;
-  background:rgba(6,26,56,.90);
-  border:1px solid rgba(240,217,149,.55);
-  color:#f0d995;
-  font-size:.62rem;
-  font-weight:950;
-  letter-spacing:.05em;
-  backdrop-filter:blur(8px);
+.external-drone-card .video-body{
+  padding:14px 16px 16px!important;
 }
-.yokota-video-card .video-body h3{
+.external-drone-card .video-body h3{
+  margin:0!important;
+  color:#071d3f!important;
   font-size:1rem!important;
+  line-height:1.35!important;
 }
-.yokota-video-card .video-body p{
-  font-size:.76rem!important;
-  line-height:1.6!important;
+.external-drone-card .video-body p{
+  margin-top:5px!important;
+  color:#68758a!important;
+  font-size:.75rem!important;
+  line-height:1.55!important;
 }
 @media(max-width:780px){
-  .yokota-drone-feature{
-    padding:18px 14px;
-    border-radius:20px;
+  .external-drone-samples{
+    padding:16px 13px;
+    border-radius:19px;
   }
-  .yokota-drone-head{
+  .external-drone-head{
     grid-template-columns:1fr;
-    gap:8px;
+    gap:7px;
   }
-  .yokota-drone-head>span{
+  .external-drone-head>span{
     grid-column:auto;
   }
-  .yokota-drone-head h3{
-    font-size:1.55rem;
+  .external-drone-head h3{
+    font-size:1.35rem;
   }
-  .yokota-drone-grid{
+  .external-drone-grid{
     grid-template-columns:1fr;
-    gap:12px;
+    gap:11px;
   }
 }
 '''
 
 s = re.sub(r'/\* V68 YOKOTA DRONE FEATURE \*/.*?(?=</style>)', '', s, count=1, flags=re.S)
+s = re.sub(r'/\* V68 EXTERNAL DRONE SAMPLES \*/.*?(?=</style>)', '', s, count=1, flags=re.S)
 s = s.replace('</style>', css + '\n</style>', 1)
+
+# Ensure no photographer attribution remains visible.
+s = s.replace('横田淳氏 撮影', '').replace('横田氏 撮影', '')
 
 p.write_text(s, encoding='utf-8')
 
 for token in [
-    'ドローン撮影サンプル',
-    'videos/yokota-indoor-drone-sample.mp4',
-    'videos/yokota-higashimurayama-drone-sample.mp4',
-    'V68 YOKOTA DRONE FEATURE',
+    '営業でご紹介している撮影サンプル',
+    '小金井以外で撮影したドローン映像',
+    '屋内マイクロドローン撮影',
+    '東村山｜企業版ふるさと納税 映像企画',
+    'V68 EXTERNAL DRONE SAMPLES',
 ]:
     if token not in s:
-        raise SystemExit(f'Missing Yokota sample token: {token}')
+        raise SystemExit(f'Missing sample token: {token}')
+if '横田淳氏 撮影' in s or '横田氏 撮影' in s:
+    raise SystemExit('Photographer attribution still present')
