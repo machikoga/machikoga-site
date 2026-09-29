@@ -10,9 +10,9 @@ s = re.sub(r'\s*<div class="yokota-drone-feature">.*?</div>\s*(?=<div class="sam
 feature = r'''
 <div class="yokota-drone-feature">
   <div class="yokota-drone-head">
-    <span>YOKOTA DRONE WORKS</span>
-    <h3>ドローン日本の第一人者<br>横田淳氏 撮影サンプル</h3>
-    <p>空間を縫うマイクロドローンから、地域プロモーション映像まで。実際の撮影サンプルをご覧ください。</p>
+    <span>DRONE SHOOTING SAMPLES</span>
+    <h3>ドローン撮影サンプル</h3>
+    <p>屋内マイクロドローンから地域プロモーションまで、実際の撮影サンプルをご覧ください。</p>
   </div>
   <div class="yokota-drone-grid">
     <article class="video-card yokota-video-card">
@@ -21,7 +21,7 @@ feature = r'''
         <source src="videos/yokota-indoor-drone-sample.mp4" type="video/mp4">
       </video>
       <div class="video-body">
-        <h3>マイクロドローン｜空間撮影</h3>
+        <h3>屋内マイクロドローン撮影</h3>
         <p>屋内を立体的に抜ける、臨場感のあるドローン映像。</p>
       </div>
     </article>
@@ -149,7 +149,7 @@ s = s.replace('</style>', css + '\n</style>', 1)
 p.write_text(s, encoding='utf-8')
 
 for token in [
-    '横田淳氏 撮影サンプル',
+    'ドローン撮影サンプル',
     'videos/yokota-indoor-drone-sample.mp4',
     'videos/yokota-higashimurayama-drone-sample.mp4',
     'V68 YOKOTA DRONE FEATURE',
