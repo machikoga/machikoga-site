@@ -78,6 +78,9 @@ jobs:
       - name: Optimize Hosting bandwidth
         run: python3 scripts/optimize_hosting_bandwidth.py
 
+      - name: Add Yokota drone samples
+        run: python3 scripts/add_yokota_drone_samples.py
+
       - name: Build downloadable V68 backup
         run: |
           mkdir -p exports
@@ -93,7 +96,7 @@ jobs:
           git add public/index.html public/assets/buru-hero-navy.webp || true
           git add -f exports/machikoga_V68_complete_2026-09-10.zip
           if ! git diff --cached --quiet; then
-            git commit -m "Optimize Hosting bandwidth and refresh backup [skip ci]"
+            git commit -m "Add Yokota drone samples and refresh backup [skip ci]"
             git push
           fi
 
