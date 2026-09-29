@@ -17,6 +17,12 @@ jobs:
       - name: Install image tools
         run: python3 -m pip install --quiet pillow
 
+      - name: Replace drone samples with HQ versions
+        run: |
+          curl -L --fail --retry 2 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-cd04-8209-9d7c-3d14d58176b4/raw?se=2026-09-29T17%3A57%3A14Z&sp=r&sv=2026-02-06&sr=b&scid=3d958b3b-a8bb-500e-8da2-e16f790512b6&skoid=bb372dd6-3b2a-4af2-b355-c26497ba23cd&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-29T03%3A50%3A43Z&ske=2026-09-30T03%3A50%3A43Z&sks=b&skv=2026-02-06&sig=4KpBSew9l1N52Q3Xm9MbxkVC52MwvxDdixyOHZn1938%3D' -o public/videos/yokota-indoor-drone-sample.mp4
+          curl -L --fail --retry 2 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-6490-8209-9db6-814047b69a22/raw?se=2026-09-29T17%3A57%3A17Z&sp=r&sv=2026-02-06&sr=b&scid=777fd2e2-b98d-5ab3-86b9-348a13f62da0&skoid=bb372dd6-3b2a-4af2-b355-c26497ba23cd&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-29T07%3A04%3A54Z&ske=2026-09-30T07%3A04%3A54Z&sks=b&skv=2026-02-06&sig=8fu7zOosgoLJGjiMWD/GlsY/r4ypbJ%2BY3sPUOpCkjfE%3D' -o public/videos/yokota-higashimurayama-drone-sample.mp4
+          ls -lh public/videos/yokota-*.mp4
+
       - name: Prepare portal wording for legacy polish step
         run: |
           python3 - <<'PY'
@@ -93,9 +99,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/index.html public/assets/buru-hero-navy.webp || true
+          git add public/index.html public/assets/buru-hero-navy.webp public/videos/yokota-indoor-drone-sample.mp4 public/videos/yokota-higashimurayama-drone-sample.mp4 || true
           if ! git diff --cached --quiet; then
-            git commit -m "Add Yokota drone samples and refresh backup [skip ci]"
+            git commit -m "Upgrade drone sample video quality [skip ci]"
             git push
           fi
 
