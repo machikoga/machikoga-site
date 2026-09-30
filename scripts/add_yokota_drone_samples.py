@@ -11,8 +11,7 @@ s = re.sub(r'\s*<div class="external-drone-samples">.*?</div>\s*(?=</div></secti
 feature = r'''
 <div class="external-drone-samples">
   <div class="external-drone-head">
-    <span>OTHER DRONE SAMPLES</span>
-    <h3>撮影サンプル</h3>
+    <span>DRONE FILM</span>\n    <h3>DRONE FILM SHOWCASE</h3>
   </div>
   <div class="external-drone-grid">
     <article class="video-card external-drone-card">
