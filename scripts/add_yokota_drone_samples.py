@@ -119,7 +119,7 @@ s = s.replace('</style>', css + '\n</style>', 1)
 p.write_text(s, encoding='utf-8')
 
 for token in [
-    '<h3>撮影サンプル</h3>',
+    '<h3>DRONE FILM SHOWCASE</h3>',
     'videos/yokota-indoor-drone-sample.mp4',
     'videos/yokota-higashimurayama-drone-sample.mp4',
     'V68 EXTERNAL DRONE SAMPLES',
