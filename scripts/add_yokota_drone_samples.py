@@ -88,16 +88,19 @@ css = r'''
   background:#061a38;
 }
 .external-drone-card .video-body{
-  padding:14px 16px 16px;
+  padding:15px 16px 17px;
+  min-height:58px;
+  background:#fff;
+  display:flex;
+  align-items:center;
 }
 .external-drone-card .video-body h3{
-  margin:0;
+  margin:0!important;
+  color:#071a33!important;
   font-size:1rem!important;
-}
-.external-drone-card .video-body p{
-  margin-top:6px!important;
-  font-size:.76rem!important;
-  line-height:1.6!important;
+  line-height:1.45!important;
+  font-weight:900!important;
+  letter-spacing:-.02em!important;
 }
 @media(max-width:780px){
   .external-drone-samples{
@@ -118,7 +121,7 @@ s = s.replace('</style>', css + '\n</style>', 1)
 p.write_text(s, encoding='utf-8')
 
 for token in [
-    '<h3>DRONE FILM SHOWCASE</h3>',
+    '<h3>CINEMATIC DRONE WORKS</h3>',
     'videos/yokota-indoor-drone-sample.mp4',
     'videos/yokota-higashimurayama-drone-sample.mp4',
     'V68 EXTERNAL DRONE SAMPLES',
