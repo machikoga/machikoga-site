@@ -8,18 +8,18 @@ section = r'''<section class="section reach-design reach-v70" id="reach-design">
   <div class="container">
     <div class="reach-v70-head">
       <span class="reach-v70-kicker">REACH DESIGN</span>
-      <h2>いい投稿を作るだけでは、<br>まだ足りない。</h2>
-      <p class="reach-v70-sub">必要なのは <strong>「誰に届けるか」</strong> を先に設計すること。</p>
-      <p class="reach-v70-note">かっこよく投稿して満足しても、届く先が変わらなければ意味がない。</p>
+      <h2>投稿をかっこよくするだけでは、<br>もったいない。</h2>
+      <p class="reach-v70-sub">大事なのは、<strong>「届けたい人に、ちゃんと届く」</strong> 設計です。</p>
+      <p class="reach-v70-note">いい写真、いい動画、いいデザイン。そこまでできても、届く相手がいつもと同じなら発信力は大きく変わりません。</p>
       <div class="reach-v70-alert">
-        <b>これをしないと意味がない。</b>
-        <span>ぶるは、投稿そのものより「届け方」を変えるお手伝いをします。</span>
+        <b>これをしないと、せっかくの投稿がもったいない。</b>
+        <span>ぶるが少し手伝って、「誰に・どこで・何度届けるか」を設計します。</span>
       </div>
     </div>
 
     <div class="reach-v70-compare">
       <article class="reach-v70-panel reach-v70-bad">
-        <div class="reach-v70-panel-title">投稿だけを工夫する</div>
+        <div class="reach-v70-panel-title">投稿の見た目だけを工夫する</div>
         <div class="reach-v70-panel-body">
           <div class="reach-v70-phone" aria-hidden="true">
             <div class="reach-v70-phone-screen">
@@ -31,9 +31,9 @@ section = r'''<section class="section reach-design reach-v70" id="reach-design">
             <div class="reach-v70-people"><i></i><i></i><i></i></div>
           </div>
           <div class="reach-v70-list bad">
-            <div><span>×</span><b>見た目で満足する</b></div>
-            <div><span>×</span><b>届く先はいつも同じ</b></div>
-            <div><span>×</span><b>良い投稿が埋もれる</b></div>
+            <div><span>×</span><b>かっこいい投稿はできる</b></div>
+            <div><span>×</span><b>でも、届く先はいつも同じ</b></div>
+            <div><span>×</span><b>せっかくの投稿が埋もれる</b></div>
           </div>
         </div>
       </article>
@@ -41,7 +41,7 @@ section = r'''<section class="section reach-design reach-v70" id="reach-design">
       <div class="reach-v70-arrow" aria-hidden="true">›</div>
 
       <article class="reach-v70-panel reach-v70-good">
-        <div class="reach-v70-panel-title">ぶるが届け方を設計する</div>
+        <div class="reach-v70-panel-title">ぶるが「届く仕組み」を足す</div>
         <div class="reach-v70-panel-body">
           <div class="reach-v70-network" aria-hidden="true">
             <div class="reach-v70-center">▶</div>
@@ -52,9 +52,9 @@ section = r'''<section class="section reach-design reach-v70" id="reach-design">
             <span class="n5">地域</span>
           </div>
           <div class="reach-v70-list good">
-            <div><span>✓</span><b>新しい人に見つけてもらえる</b></div>
-            <div><span>✓</span><b>Google・検索・口コミから届く</b></div>
-            <div><span>✓</span><b>同じ投稿でも反応が変わる</b></div>
+            <div><span>✓</span><b>届けたい人を先に決める</b></div>
+            <div><span>✓</span><b>Instagram・Google・検索・口コミをつなぐ</b></div>
+            <div><span>✓</span><b>同じ1投稿を何度も見つけてもらう</b></div>
           </div>
         </div>
       </article>
@@ -65,30 +65,30 @@ section = r'''<section class="section reach-design reach-v70" id="reach-design">
         <article>
           <small>01</small>
           <div class="reach-v70-icon reach-v70-target">◎</div>
-          <b>誰に届けるか決める</b>
+          <b>届けたい人を決める</b>
         </article>
         <div class="reach-v70-step-arrow" aria-hidden="true">›</div>
         <article>
           <small>02</small>
           <div class="reach-v70-chips"><span>Instagram</span><span>Google</span><span>検索</span></div>
-          <b>見つかる入口を増やす</b>
+          <b>届く入口を増やす</b>
         </article>
         <div class="reach-v70-step-arrow" aria-hidden="true">›</div>
         <article>
           <small>03</small>
           <div class="reach-v70-icon">↻</div>
-          <b>同じ発信を何度も届ける</b>
+          <b>1投稿を何度も届ける</b>
         </article>
       </div>
 
       <aside class="reach-v70-result">
-        <span>ぶるが少し手伝うだけで</span>
-        <strong>届き方は<em>数倍</em>に。</strong>
-        <p>投稿の質だけでなく、届け方で差がつきます。</p>
+        <span>投稿回数を増やすのではなく</span>
+        <strong>いつもの1回を、<br>小金井で<em>数倍</em>強く。</strong>
+        <p>投稿の質はそのまま活かして、届けたい人に届く道をつくります。</p>
       </aside>
     </div>
 
-    <p class="reach-v70-closing">みんな投稿を工夫している時代。だからこそ、届け方の設計で差がつく。</p>
+    <p class="reach-v70-closing">投稿を増やす必要はありません。今ある発信に「届ける設計」を足すだけ。</p>
     <div class="reach-v70-cta">バズらせない。届けたい人に、深く届ける。 <span>→</span></div>
   </div>
 </section>'''
@@ -193,9 +193,9 @@ s = s.replace('</head>', css + '\n</head>', 1)
 p.write_text(s, encoding="utf-8")
 
 required = [
-    'これをしないと意味がない。',
-    'ぶるが届け方を設計する',
-    '届き方は<em>数倍</em>に。',
+    'これをしないと、せっかくの投稿がもったいない。',
+    'ぶるが「届く仕組み」を足す',
+    'いつもの1回を、<br>小金井で<em>数倍</em>強く。',
     'id="reach-v70-style"'
 ]
 for token in required:
