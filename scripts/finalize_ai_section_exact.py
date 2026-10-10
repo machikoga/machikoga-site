@@ -85,6 +85,6 @@ s = s.replace('</style>', css + '\n</style>', 1)
 
 p.write_text(s, encoding='utf-8')
 
-for token in ['AIには作れない、<br>地域ビジネスの価値。','STOCK TYPE','地域で積み上げた5つの価値','価値は、すでにある。','まちこがは、それを見つかる形にする。','V68 AI SECTION EXACT FINAL']:
+for token in ['AIには作れない、<br>地域で活動する人と店の価値。','STOCK TYPE','地域で積み上げた5つの価値','価値は、すでにある。','まちこがは、それを見つかる形にする。','V68 AI SECTION EXACT FINAL']:
     if token not in s:
         raise SystemExit(f'Missing AI final token: {token}')
