@@ -81,6 +81,9 @@ jobs:
       - name: Add Yokota drone samples
         run: python3 scripts/add_yokota_drone_samples.py
 
+      - name: Finalize visual REACH DESIGN
+        run: python3 scripts/finalize_reach_design_visual.py
+
       - name: Build downloadable V68 backup
         run: |
           mkdir -p exports
