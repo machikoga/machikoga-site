@@ -7,7 +7,7 @@ s = p.read_text(encoding='utf-8')
 section_html = r'''<section class="section ai-final" id="ai">
   <div class="ai-final-inner">
     <div class="ai-final-kicker">AI CANNOT CREATE THIS</div>
-    <h2 class="ai-final-title">AIには作れない、<br>地域ビジネスの価値。</h2>
+    <h2 class="ai-final-title">AIには作れない、<br>地域で活動する人と店の価値。</h2>
     <p class="ai-final-lead">AIは文章や画像を作れても、地域で積み上げてきた <strong>「本物の価値」</strong> までは作れません。</p>
 
     <div class="ai-stock">
@@ -25,16 +25,16 @@ section_html = r'''<section class="section ai-final" id="ai">
       <div class="ai-contrast-card ai-cannot">
         <span class="ai-contrast-label">AIには作れない</span>
         <strong>地域で積み上げた5つの価値</strong>
-        <small>その店・その場所にしかないもの。</small>
+        <small>その人・その店・その場所にしかないもの。</small>
       </div>
     </div>
 
     <div class="ai-values">
-      <article class="ai-value"><span class="ai-value-no">01</span><h3>土地</h3><p>その場所で商売してきた事実</p></article>
-      <article class="ai-value"><span class="ai-value-no">02</span><h3>歴史</h3><p>店・会社が歩んできた背景</p></article>
+      <article class="ai-value"><span class="ai-value-no">01</span><h3>土地</h3><p>その場所で活動・商売してきた事実</p></article>
+      <article class="ai-value"><span class="ai-value-no">02</span><h3>歴史</h3><p>人・店・会社が歩んできた背景</p></article>
       <article class="ai-value"><span class="ai-value-no">03</span><h3>時間・プロセス</h3><p>地域に積み重ねた信頼</p></article>
       <article class="ai-value"><span class="ai-value-no">04</span><h3>思い出</h3><p>お客様との体験・記憶</p></article>
-      <article class="ai-value ai-value-featured"><span class="ai-value-no">05</span><h3>地域との<br>つながり</h3><p>小金井で育てた、本物の事業資産</p></article>
+      <article class="ai-value ai-value-featured"><span class="ai-value-no">05</span><h3>地域との<br>つながり</h3><p>小金井で育てた、本物の活動・事業資産</p></article>
     </div>
 
     <div class="ai-final-message">
