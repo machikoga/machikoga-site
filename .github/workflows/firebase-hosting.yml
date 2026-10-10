@@ -84,6 +84,9 @@ jobs:
       - name: Finalize visual REACH DESIGN
         run: python3 scripts/finalize_reach_design_visual.py
 
+      - name: Finalize simple stock asset section
+        run: python3 scripts/finalize_stock_ai_simple.py
+
       - name: Build downloadable V68 backup
         run: |
           mkdir -p exports
