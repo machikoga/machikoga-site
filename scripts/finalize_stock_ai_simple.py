@@ -112,7 +112,7 @@ if n!=1:
 # Remove separate infra section because its message is now consolidated here.
 infra_pattern=r'<section class="section infra" id="infra">.*?</section>'
 s,n2=re.subn(infra_pattern,'',s,count=1,flags=re.S)
-if n2!=1:
+if n2 not in (0,1):
     raise SystemExit("Infra section removal failed")
 
 # Remove prior simple stock CSS if rerun and append final CSS in head.
