@@ -29,7 +29,7 @@ ai_html = '''<section class="section ai ai-premium" id="ai"><div class="containe
 
 # Replace the two sections as complete components.
 s, n1 = re.subn(r'<section class="section why[^\"]*" id="why">.*?</section>', why_html, s, count=1, flags=re.S)
-s, n2 = re.subn(r'<section class="section ai[^\"]*" id="ai">.*?</section>', ai_html, s, count=1, flags=re.S)
+s, n2 = re.subn(r'<section class="section (?:ai|stock-ai-simple)[^\"]*" id="ai">.*?</section>', ai_html, s, count=1, flags=re.S)
 if n1 != 1 or n2 != 1:
     raise SystemExit(f'Could not replace WHY/AI sections: why={n1}, ai={n2}')
 
