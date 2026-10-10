@@ -8,15 +8,16 @@ section = r'''<section class="section reach-design reach-v71" id="reach-design">
   <div class="container">
     <div class="reach-v71-head">
       <span class="reach-v71-kicker">REACH DESIGN</span>
-      <h2>いつもの投稿を、<br><em>もっと届く投稿へ。</em></h2>
+      <h2>投稿をかっこよくしても、<br><em>小金井で強くなれるとは限らない。</em></h2>
     </div>
 
     <div class="reach-v71-choice">
       <article class="reach-v71-card reach-v71-ng">
         <span class="reach-v71-mark">×</span>
         <div>
-          <small>POST ONLY</small>
+          <small>STEP 01</small>
           <h3>投稿をかっこよくする</h3>
+          <p class="reach-v71-card-note">でも、届く先が同じなら小金井での強さは変わらない。</p>
         </div>
       </article>
 
@@ -25,15 +26,16 @@ section = r'''<section class="section reach-design reach-v71" id="reach-design">
       <article class="reach-v71-card reach-v71-ok">
         <span class="reach-v71-mark">○</span>
         <div>
-          <small>REACH DESIGN</small>
+          <small>STEP 02</small>
           <h3>設計を見直して、<br>いつもの投稿をする</h3>
+          <p class="reach-v71-card-note">投稿回数を増やさず、届け方だけを変える。</p>
         </div>
       </article>
     </div>
 
     <div class="reach-v71-result">
       <p>届けたい人に、ちゃんと届けられる。</p>
-      <strong>いつもの投稿が、<em>数倍パワーアップ。</em></strong>
+      <strong>いつもの投稿が、<em>小金井で数倍パワーアップ。</em></strong>
     </div>
   </div>
 </section>'''
@@ -56,7 +58,7 @@ css = r'''
 .reach-v71-ng .reach-v71-mark{background:#dfe5ec!important;color:#6b7b8e!important}
 .reach-v71-ok .reach-v71-mark{background:#c99426!important;color:#fff!important}
 .reach-v71-card small{display:block!important;font-size:.68rem!important;font-weight:900!important;letter-spacing:.13em!important;color:#7b8798!important}
-.reach-v71-card h3{margin:8px 0 0!important;color:#0b2348!important;font-size:clamp(1.45rem,2.5vw,2.15rem)!important;line-height:1.25!important;letter-spacing:-.025em!important}
+.reach-v71-card h3{margin:8px 0 0!important;color:#0b2348!important;font-size:clamp(1.45rem,2.5vw,2.15rem)!important;line-height:1.25!important;letter-spacing:-.025em!important}.reach-v71-card-note{margin:9px 0 0!important;color:#66758a!important;font-size:.88rem!important;line-height:1.55!important;font-weight:700!important}
 .reach-v71-arrow{text-align:center!important;color:#0b2348!important;font-size:3.2rem!important;font-weight:900!important}
 .reach-v71-result{margin-top:24px!important;padding:34px 28px!important;border-radius:28px!important;background:linear-gradient(145deg,#071d3f,#0b3567)!important;color:#fff!important;text-align:center!important;box-shadow:0 24px 54px rgba(5,25,57,.18)!important}
 .reach-v71-result p{margin:0!important;color:rgba(255,255,255,.88)!important;font-size:clamp(1.1rem,2vw,1.5rem)!important;font-weight:800!important}
@@ -95,8 +97,9 @@ p.write_text(s, encoding="utf-8")
 
 required = [
     '投稿をかっこよくする',
+    '小金井で強くなれるとは限らない。',
     '設計を見直して、<br>いつもの投稿をする',
-    'いつもの投稿が、<em>数倍パワーアップ。</em>',
+    'いつもの投稿が、<em>小金井で数倍パワーアップ。</em>',
     'id="reach-v70-style"'
 ]
 for token in required:
