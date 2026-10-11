@@ -87,6 +87,9 @@ jobs:
       - name: Finalize simple stock asset section
         run: python3 scripts/finalize_stock_ai_simple.py
 
+      - name: Finalize homepage story order
+        run: python3 scripts/finalize_story_order.py
+
       - name: Build downloadable V68 backup
         run: |
           mkdir -p exports
