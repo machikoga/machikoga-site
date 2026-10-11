@@ -4,16 +4,15 @@ import re
 p = Path('public/index.html')
 s = p.read_text(encoding='utf-8')
 
-why_html = '''<section class="section why why-premium" id="why"><div class="container">
-<div class="why-premium-head"><div><span class="kicker">WHY NOW</span><h2>なぜ、今整えるのか。</h2></div><p class="why-premium-lead">お店の価値ではなく、<strong>「見つけられ方」</strong>で差がつく時代です。<br>SNS・Google・地域発信をつなぎ、選ばれる入口を整えます。</p></div>
-<div class="why-reasons">
-<article class="why-reason"><div class="why-reason-top"><span class="why-icon why-icon-ai">AI</span><span class="why-no">01</span></div><h3>AIに伝わる情報を増やす</h3><p>SNS・Google・写真・更新情報が揃うほど、AIにも店の特徴が伝わりやすくなります。</p><div class="why-outcome">情報を整える <b>→</b> 候補に入りやすくなる</div></article>
-<article class="why-reason"><div class="why-reason-top"><span class="why-icon why-icon-google">G</span><span class="why-no">02</span></div><h3>Googleで、先に見つかる店へ</h3><p>検索・地図・口コミ・写真が整っているほど、比較のスタート地点に立ちやすくなります。</p><div class="why-outcome">見つかる <b>→</b> 良さを知ってもらえる</div></article>
-<article class="why-reason"><div class="why-reason-top"><span class="why-icon why-icon-local">↗</span><span class="why-no">03</span></div><h3>地域の中で、選ばれる土台をつくる</h3><p>発信・検索・口コミがつながると、小金井の中で選ばれる理由が積み上がります。</p><div class="why-outcome">店の差だけでなく、<b>見つかり方の差</b></div></article>
+why_html = '''<section class="section why why-simple" id="why"><div class="container">
+<div class="why-simple-head"><span class="kicker">WHY NOW</span><h2>なぜ、今整えるのか。</h2><p>良い店でも、<strong>見つけてもらえなければ選ばれない。</strong></p></div>
+<div class="why-simple-list">
+  <article><span class="why-simple-no">01</span><div><h3>AIに伝わる情報を増やす</h3><p>SNS・Google・写真・店舗情報を整える。</p></div></article>
+  <article><span class="why-simple-no">02</span><div><h3>Googleで見つかる状態をつくる</h3><p>検索・地図・口コミから、見つかる入口を増やす。</p></div></article>
+  <article><span class="why-simple-no">03</span><div><h3>小金井で選ばれる土台をつくる</h3><p>地域で何度も見つけてもらえる状態にする。</p></div></article>
 </div>
-<div class="why-conclusion"><div class="why-conclusion-copy"><span class="why-conclusion-label">THE POINT</span><h3>良い店だからこそ、<br><em>見つかる仕組み</em>まで整える。</h3><p>必要なのは、投稿数を増やすことではなく、<strong>小金井で見つかる入口を持つこと。</strong></p></div><div class="why-entry-grid"><div><span>01</span><b>Google検索</b></div><div><span>02</span><b>Googleマップ</b></div><div><span>03</span><b>Instagram</b></div><div><span>04</span><b>AI検索</b></div></div></div>
+<div class="why-simple-conclusion"><span>THE POINT</span><h3>良い店だからこそ、<br><em>「見つかる仕組み」</em>まで整える。</h3><p>投稿を増やすのではなく、<strong>見つかる入口を増やす。</strong></p></div>
 </div></section>'''
-
 ai_html = '''<section class="section ai ai-premium" id="ai"><div class="container">
 <div class="ai-premium-head"><div><span class="kicker">AI CANNOT CREATE THIS</span><h2>AIには作れない、<br>地域ビジネスの価値。</h2></div><p>AIは文章や画像を作れても、地域で積み上げてきた<strong>「本物の価値」</strong>までは作れません。</p></div>
 <div class="ai-contrast"><div class="ai-contrast-side ai-can"><span>AIが作れる</span><strong>文章・画像・情報整理</strong><small>速く、便利に、何度でも。</small></div><div class="ai-vs"><span>VS</span></div><div class="ai-contrast-side ai-cannot"><span>AIには作れない</span><strong>地域で積み上げた5つの価値</strong><small>その店・その場所にしかないもの。</small></div></div>
@@ -35,6 +34,32 @@ if n1 != 1 or n2 != 1:
 
 css = r'''
 /* V68 WHY AI PREMIUM */
+
+/* WHY NOW SIMPLE V73 */
+.why-simple{background:linear-gradient(180deg,#fff,#f6f8fb)}
+.why-simple-head{text-align:left;max-width:820px;margin-bottom:30px}
+.why-simple-head h2{margin-top:10px;color:var(--navy);font-size:clamp(2.8rem,5.6vw,5.1rem);line-height:1.02;letter-spacing:-.055em}
+.why-simple-head p{margin-top:16px;color:#53647c;font-size:1.12rem;line-height:1.8}
+.why-simple-head p strong{color:var(--navy)}
+.why-simple-list{display:grid;gap:14px}
+.why-simple-list article{display:grid;grid-template-columns:74px 1fr;gap:18px;align-items:center;padding:22px 24px;border-radius:22px;background:#fff;border:1px solid #dfe6ee;box-shadow:0 12px 28px rgba(5,25,57,.06)}
+.why-simple-no{width:54px;height:54px;border-radius:16px;background:linear-gradient(145deg,#0b2f65,#174a86);color:#fff;display:grid;place-items:center;font-size:.78rem;font-weight:900}
+.why-simple-list article:nth-child(2) .why-simple-no{background:linear-gradient(145deg,#0c7184,#14aaa1)}
+.why-simple-list article:nth-child(3) .why-simple-no{background:linear-gradient(145deg,#986616,#d7a93e)}
+.why-simple-list h3{margin:0;color:var(--navy);font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.3}
+.why-simple-list p{margin:6px 0 0;color:#65748a;font-size:.95rem;line-height:1.65}
+.why-simple-conclusion{margin-top:22px;padding:30px;border-radius:28px;background:linear-gradient(135deg,#061a38,#0a3567);color:#fff}
+.why-simple-conclusion>span{display:inline-flex;padding:6px 10px;border-radius:999px;border:1px solid rgba(240,217,149,.35);color:#f0d995;font-size:.68rem;font-weight:900;letter-spacing:.1em}
+.why-simple-conclusion h3{margin:12px 0 0;color:#fff;font-size:clamp(1.9rem,3.4vw,3.2rem);line-height:1.12}
+.why-simple-conclusion h3 em{font-style:normal;color:#f0d995}
+.why-simple-conclusion p{margin:12px 0 0;color:rgba(255,255,255,.78);font-size:1rem}
+.why-simple-conclusion p strong{color:#fff}
+@media(max-width:700px){
+  .why-simple-list article{grid-template-columns:56px 1fr;padding:18px}
+  .why-simple-no{width:46px;height:46px;border-radius:14px}
+  .why-simple-head h2{font-size:clamp(2.2rem,11vw,3.4rem)}
+}
+
 
 /* ---------- WHY NOW ---------- */
 .why-premium{background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 100%)}
