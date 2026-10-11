@@ -54,7 +54,7 @@ css=r'''
 <style id="stock-ai-simple-style">
 .stock-v73{padding:92px 0!important;background:linear-gradient(145deg,#031735,#082c60)!important;color:#fff!important}
 .stock-v73 .container{max-width:1120px!important}
-.stock-v73-head{text-align:center!important}
+.stock-v73-head{text-align:left!important}
 .stock-v73-kicker{display:inline-flex!important;align-items:center!important;gap:12px!important;color:#f0d995!important;font-size:.76rem!important;font-weight:900!important;letter-spacing:.16em!important}
 .stock-v73-kicker:before,.stock-v73-kicker:after{content:""!important;width:34px!important;height:2px!important;background:#f0d995!important}
 .stock-v73-head h2{margin:16px 0 0!important;color:#fff!important;font-size:clamp(2.8rem,5.8vw,5.4rem)!important;line-height:1.03!important;letter-spacing:-.055em!important}
