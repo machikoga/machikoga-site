@@ -45,7 +45,7 @@ css = r'''
 /* V71 SIMPLE REACH DESIGN */
 .reach-v71{background:#fff!important;padding:82px 0!important}
 .reach-v71 .container{max-width:1120px!important}
-.reach-v71-head{text-align:center!important;margin-bottom:30px!important}
+.reach-v71-head{text-align:left!important;margin-bottom:30px!important}
 .reach-v71-kicker{display:inline-flex!important;align-items:center!important;gap:12px!important;color:#0b2b55!important;font-size:.76rem!important;font-weight:900!important;letter-spacing:.18em!important}
 .reach-v71-kicker:before,.reach-v71-kicker:after{content:""!important;width:34px!important;height:2px!important;background:#c99426!important}
 .reach-v71-head h2{margin:14px 0 0!important;color:#0b2348!important;font-size:clamp(2.4rem,5vw,4.8rem)!important;line-height:1.05!important;letter-spacing:-.05em!important}
